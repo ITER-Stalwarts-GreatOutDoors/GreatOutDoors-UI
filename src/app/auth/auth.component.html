@@ -1,0 +1,66 @@
+<div class="main-box">
+    <div class="slider-cont">
+        <div class="signup-slider">
+            <div class="img-txt">
+                <div class="img-layer"></div>
+                <h1>Go where you feel most alive.</h1>
+                <img src="https://www.ecopetit.cat/wpic/mpic/38-385827_camping-hd.jpg" />
+            </div>
+            <div class="img-txt">
+                <div class="img-layer"></div>
+                <h1>We understand you and your needs, We have the right solutions for you.</h1>
+                <img src="https://blog.cwf-fcf.org/wp-content/uploads/2019/06/nature-meditate-happy-mountain-GettyImages-1028900652.jpg" />
+            </div>
+            <div class="img-txt">
+                <div class="img-layer"></div>
+                <h1>To a Great OutDoors!</h1>
+                <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-cont">
+
+        <div class="top-buttons">
+            <button class="to-signup top-active-button">
+          Sign Up
+        </button>
+            <button class="to-signin">
+          Sign In
+        </button>
+        </div>
+        <div class="form form-signin">
+            <form #authSigninForm="ngForm" (ngSubmit)="onSignin(authSigninForm)">
+                <label for="email">E-MAIL</label>
+                <input type="email" placeholder="Your e-mail" id="email" ngModel required email>
+                <label for="password">PASSWORD</label>
+                <input type="password" placeholder="Your password" id="password" ngModel required minlength="6">
+                <input type="submit" class="form-btn" value="Sign In" />
+                <a routerLink="/admin" routerLinkActive="router-link-active">Admin / Product-Master</a>
+            </form>
+        </div>
+
+        <div class="form form-signup">
+            <form #authSignupForm="ngForm" (ngSubmit)="onSignup(authSignupForm)">
+                <label for="name">FULL NAME</label>
+                <input type="text" placeholder="Your full name" ngModel required id="name">
+                <label for="email">E-MAIL</label>
+                <input type="email" placeholder="Your e-mail" id="email" ngModel required email>
+                <label for="password">PASSWORD</label>
+                <input type="password" placeholder="Your password" id="password" ngModel required minlength="6">
+                <label for="mobile">MOBILE NO.</label>
+                <input type="text" placeholder="Your mobile number" id="mobile" ngModel required minlength="10">
+                <p class="terms">
+                    <input type="checkbox"> I agree all statments in
+                    <a href="#" class="lined-link">terms of service</a>
+                </p>
+                <input type="submit" class="form-btn" value="Sign Up" />
+                <a href="#" class="lined-link to-signin-link">I'm already member</a>
+            </form>
+        </div>
+
+
+    </div>
+    <div class="clear-fix"></div>
+</div>
