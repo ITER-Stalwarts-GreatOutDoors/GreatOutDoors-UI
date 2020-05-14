@@ -21,6 +21,7 @@
     "@angular/router": "~9.0.5",
     "@types/jquery": "^3.3.38",
     "bootstrap": "^3.4.1",
+    "compass-mixins": "^0.12.10",
     "install": "^0.13.0",
     "jquery": "^3.5.1",
     "rxjs": "^6.5.5",

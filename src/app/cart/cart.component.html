@@ -1,0 +1,79 @@
+<div id="app">
+
+    <!-- Header -->
+    <header class="container">
+        <div class="w3-container w3-lobster">
+            <p class="w3-xxxlarge">GreatOutDoors Cart</p>
+        </div>
+
+        <ul class="breadcrumb">
+            <li>Home</li>
+            <li>Shopping Cart</li>
+        </ul>
+        <span class="count">{{itemCount()}} items in the bag</span>
+    </header>
+    <!-- End Header -->
+
+    <!-- Product List -->
+    <section class="container">
+        <div *ngIf="products.length > 0">
+            <ul class="products">
+                <li class="row" *ngFor="let product of products;let i = index">
+                    <div class="col left">
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img :src={{product.image}} />
+                            </a>
+                        </div>
+                        <div class="detail">
+                            <div class="name"><a href="#">{{ product.name }}</a></div>
+                            <div class="description">{{ product.description }}</div>
+                            <div class="price">{{ product.price | indianCurrency}}</div>
+                        </div>
+                    </div>
+
+                    <div class="col right">
+                        <div class="quantity">
+                            <input type="number" class="quantity" step="1" [value]="product.quantity" #box (keyup)="updateQuantity(i, box.value)" (blur)="checkQuantity(i, $event)" />
+                        </div>
+
+                        <div class="remove">
+                            <svg (click)="removeItem(i)" version="1.1" class="close" xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60" enable-background="new 0 0 60 60" xml:space="preserve"><polygon 
+                            points="38.936,23.561 36.814,21.439 30.562,27.691 24.311,21.439 22.189,23.561 28.441,29.812 22.189,36.064 24.311,38.186 30.562,31.934 36.814,38.186 38.936,36.064 32.684,29.812">
+                            </polygon></svg>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="products.length===0" class="empty-product">
+            <h3>There are no products in your cart.</h3>
+            <button>Shopping now</button>
+        </div>
+    </section>
+    <!-- End Product List -->
+
+    <!-- Summary -->
+    <section class="container" *ngIf="products.length > 0">
+        <div class="promotion">
+            <!-- <label for="promo-code">Have A Promo Code?</label>
+            <input type="text" id="promo-code" v-model="promoCode" /> <button type="button" onclick="checkPromoCode"></button> -->
+        </div>
+
+        <div class="summary">
+            <ul>
+                <li>Subtotal <span>{{subTotal() | indianCurrency }}</span></li>
+                <li *ngIf="discount > 0">Discount <span>
+                    {{ discountPrice() | indianCurrency}}
+                </span></li>
+                <li>Tax <span>{{tax | indianCurrency}}</span></li>
+                <li class="total">Total <span>{{ totalPrice() | indianCurrency}}</span></li>
+            </ul>
+        </div>
+
+        <div class="checkout">
+            <button type="button">Check Out</button>
+        </div>
+    </section>
+    <!-- End Summary -->
+</div>
