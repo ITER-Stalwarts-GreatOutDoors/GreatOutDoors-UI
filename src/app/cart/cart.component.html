@@ -2,7 +2,7 @@
 
 
     <!-- Header -->
-    <header class="container">
+    <header class="container overflow-hidden">
         <div class="w3-container w3-lobster">
             <p class="w3-xxxlarge">GreatOutDoors Cart</p>
         </div>
@@ -30,8 +30,9 @@
                             <div class="name"><a href="#">{{ product.productName }}</a></div>
                             <div class="description">{{ product.specification }}</div>
 
-                            <p class="bg-info">Colour : {{ product.colour}}</p>
-                            <p class="bg-warning">dimension : {{ product.dimension }}</p>
+                            <p><mark class="bg-secondary text-white">Colour : {{ product.colour}}</mark></p>
+                            <p><mark class="bg-info text-white">Dimension : {{ product.dimension }}</mark></p>
+
                             <div class="description">{{ product.manufacture}}</div>
                             <div class="price">{{ product.price | indianCurrency}}</div>
                         </div>

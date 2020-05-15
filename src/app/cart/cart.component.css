@@ -5,11 +5,11 @@
 
 .w3-lobster {
     font-family: "Lobster", serif;
-    font-size: 40px;
+    font-size: 50px;
 }
 
 html {
-    font-size: 12px;
+    font-size: 10px;
 }
 
 body {
@@ -20,8 +20,8 @@ body {
 }
 
 img {
-    max-height: 150px;
-    max-width: 200px;
+    max-height: 250px;
+    max-width: 250px;
     vertical-align: middle;
     border-radius: 4px;
 }
@@ -86,7 +86,7 @@ input {
 }
 
 .container {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     overflow: auto;
 }
@@ -95,7 +95,7 @@ input {
 /* --- HEADER --- */
 
 header.container {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 header .breadcrumb {
@@ -161,21 +161,22 @@ header .count {
 }
 
 .detail {
-    padding: 0 0.5rem;
-    line-height: 2.2rem;
+    padding: 0 0.2rem;
+    line-height: 2rem;
 }
 
 .detail .name {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    font-style: initial;
 }
 
 .detail .description {
     color: #7d7d7d;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .detail .price {
-    font-size: 1.7rem;
+    font-size: 1.3rem;
 }
 
 .quantity,
@@ -225,7 +226,7 @@ header .count {
 .checkout {
     float: left;
     width: 100%;
-    margin-top: 1.5rem;
+    margin-top: 1.2rem;
 }
 
 .promotion>label {
@@ -265,7 +266,7 @@ header .count {
 }
 
 .summary {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: right;
 }
 
@@ -287,8 +288,8 @@ header .count {
 }
 
 .checkout>button {
-    font-size: 1.5rem;
-    padding: 1rem 3rem;
+    font-size: 1rem;
+    padding: 1rem 2rem;
     border-radius: 1.8rem;
 }
 
@@ -328,8 +329,8 @@ header .count {
         font-size: 14px;
     }
     .container {
-        width: 75%;
-        max-width: 960px;
+        width: 100%;
+        max-width: 800px;
     }
     .thumbnail,
     .detail {

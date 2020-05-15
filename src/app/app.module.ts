@@ -7,7 +7,7 @@ import { AuthComponent } from './auth/auth.component';
 import { AdminMasterComponent } from './admin-master/admin-master.component';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
-import { AddToCartServiceService } from './add-to-cart-service.service';
+import { AddToCartServiceService } from './_services/add-to-cart-service.service';
 import {HttpClientModule } from '@angular/common/http'
 import { IndianCurrency } from './cart/indianCurrency.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,7 +17,11 @@ import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { NavBarComponent } from './nav-bar/nav-bar.component'
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { HomeComponent } from './home/home.component';
+import { RetailerhomepageComponent } from './retailerhomepage/retailerhomepage.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { ProductMasterHomeComponent } from './product-master-home/product-master-home.component'
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { NavBarComponent } from './nav-bar/nav-bar.component'
     CartComponent,
     IndianCurrency,
     NavBarComponent,
+    HomeComponent,
+    RetailerhomepageComponent,
+    AdminHomeComponent,
+    ProductMasterHomeComponent,
    
   ],
   imports: [
