@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AddToCartServiceService } from '../add-to-cart-service.service';
+import { NavServiceService } from '../nav-service.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,28 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+
+  products:any;
+  constructor(private service:AddToCartServiceService , public nav:NavServiceService) { }
 
   ngOnInit(): void {
+    this.nav.hide();
+    let list = this.service.viewProductsFromCart();
+    list.subscribe((data) => this.products=data);
   }
 
 
-  products:any= [
-    {
-      image: "https://mk0travelawayrru2xew.kinstacdn.com/wp-content/uploads/2016/03/camping-cooking-gear.jpg",
-      name: "PRODUCT ITEM NUMBER 1",
-      description: "Description for product item number 1",
-      price: 5.99,
-      quantity: 2
-    },
-    {
-      image: "https://www.rei.com/media/product/737380",
-      name: "PRODUCT ITEM NUMBER 2",
-      description: "Description for product item number 1",
-      price: 9.99,
-      quantity: 1
-    }
-  ]
+  
 
   tax : number= 5;
   // promotions: [
@@ -111,7 +103,12 @@ export class CartComponent implements OnInit {
   }
 
   removeItem(index) {
+    var message;
+    let remove = this.service.removeItemFromCart(this.products[index].productId);
+    remove.subscribe((data) => message=data);
     this.products.splice(index, 1);
+  
+    
   }
 
 

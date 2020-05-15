@@ -10,6 +10,14 @@ import { CartComponent } from './cart/cart.component';
 import { AddToCartServiceService } from './add-to-cart-service.service';
 import {HttpClientModule } from '@angular/common/http'
 import { IndianCurrency } from './cart/indianCurrency.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { NavBarComponent } from './nav-bar/nav-bar.component'
 
 @NgModule({
   declarations: [
@@ -17,13 +25,22 @@ import { IndianCurrency } from './cart/indianCurrency.pipe';
     AuthComponent,
     AdminMasterComponent,
     CartComponent,
-    IndianCurrency
+    IndianCurrency,
+    NavBarComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    MatGridListModule
   ],
   providers: [AddToCartServiceService ],
   bootstrap: [AppComponent]
