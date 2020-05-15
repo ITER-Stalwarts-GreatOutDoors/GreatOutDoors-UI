@@ -3,18 +3,18 @@ import { UserService } from '../_services/user.service';
 import { NavServiceService } from '../_services/nav-service.service';
 
 @Component({
-  selector: 'app-product-master-home',
-  templateUrl: './product-master-home.component.html',
-  styleUrls: ['./product-master-home.component.css']
+  selector: 'app-user-home',
+  templateUrl: './user-home.component.html',
+  styleUrls: ['./user-home.component.css']
 })
-export class ProductMasterHomeComponent implements OnInit {
-
-  content = '';
+export class UserHomeComponent implements OnInit {
 
   constructor(private userService: UserService ,  public nav:NavServiceService) { }
 
+  content = '';
   ngOnInit(): void {
-    this.userService.getProductMasterBoard().subscribe(
+
+    this.userService.getUserBoard().subscribe(
       data => {
         this.content = data;
       },

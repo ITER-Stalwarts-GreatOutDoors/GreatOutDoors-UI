@@ -33,24 +33,24 @@
         <div class="form form-signin">
             <form #authSigninForm="ngForm" (ngSubmit)="onSignin(authSigninForm)">
                 <label for="email">E-MAIL</label>
-                <input type="email" placeholder="Your e-mail" id="email" ngModel required email>
+                <input type="email" placeholder="Your e-mail" id="email" ngModel name="username" required>
                 <label for="password">PASSWORD</label>
-                <input type="password" placeholder="Your password" id="password" ngModel required minlength="6">
+                <input type="password" placeholder="Your password" id="password" ngModel name="password" required minlength="6">
                 <input type="submit" class="form-btn" value="Sign In" />
-                <a routerLink="/admin" routerLinkActive="router-link-active">Admin / Product-Master</a>
+
             </form>
         </div>
 
         <div class="form form-signup">
             <form #authSignupForm="ngForm" (ngSubmit)="onSignup(authSignupForm)">
                 <label for="name">FULL NAME</label>
-                <input type="text" placeholder="Your full name" ngModel required id="name">
+                <input type="text" placeholder="Your full name" ngModel name="username" required id="name">
                 <label for="email">E-MAIL</label>
-                <input type="email" placeholder="Your e-mail" id="email" ngModel required email>
+                <input type="email" placeholder="Your e-mail" id="email" ngModel name="email" required email>
                 <label for="password">PASSWORD</label>
-                <input type="password" placeholder="Your password" id="password" ngModel required minlength="6">
+                <input type="password" placeholder="Your password" id="password" ngModel name="password" required minlength="6">
                 <label for="mobile">MOBILE NO.</label>
-                <input type="text" placeholder="Your mobile number" id="mobile" ngModel required minlength="10">
+                <input type="text" placeholder="Your mobile number" id="mobile" ngModel name="phoneno" required minlength="10">
                 <p class="terms">
                     <input type="checkbox"> I agree all statments in
                     <a href="#" class="lined-link">terms of service</a>

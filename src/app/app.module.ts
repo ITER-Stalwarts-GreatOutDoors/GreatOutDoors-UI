@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
-import { AdminMasterComponent } from './admin-master/admin-master.component';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
 import { AddToCartServiceService } from './_services/add-to-cart-service.service';
@@ -21,13 +20,14 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { RetailerhomepageComponent } from './retailerhomepage/retailerhomepage.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
-import { ProductMasterHomeComponent } from './product-master-home/product-master-home.component'
+import { ProductMasterHomeComponent } from './product-master-home/product-master-home.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { UserHomeComponent } from './user-home/user-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    AdminMasterComponent,
     CartComponent,
     IndianCurrency,
     NavBarComponent,
@@ -35,6 +35,7 @@ import { ProductMasterHomeComponent } from './product-master-home/product-master
     RetailerhomepageComponent,
     AdminHomeComponent,
     ProductMasterHomeComponent,
+    UserHomeComponent,
    
   ],
   imports: [
@@ -50,7 +51,7 @@ import { ProductMasterHomeComponent } from './product-master-home/product-master
     MatProgressSpinnerModule,
     MatGridListModule
   ],
-  providers: [AddToCartServiceService ],
+  providers: [AddToCartServiceService , authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

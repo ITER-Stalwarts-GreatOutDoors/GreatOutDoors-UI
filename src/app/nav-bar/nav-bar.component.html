@@ -1,8 +1,33 @@
-<mat-toolbar color="primary" *ngIf="nav.visible">
-    <h1>
-        ngStore
-    </h1>
-    <button mat-button routerLink="/">Home</button>
-    <button mat-button routerLink="/about">About</button>
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="nav.visible">
+    <a href="#" class="navbar-brand">GreatOutDoors</a>
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+        <li class="nav-item">
+            <a href="/home" class="nav-link" routerLink="home">Home </a>
+        </li>
+        <li class="nav-item" *ngIf="showAdminBoard">
+            <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+        </li>
+        <li class="nav-item" *ngIf="showProductMasterBoard">
+            <a href="/master" class="nav-link" routerLink="master">Poduct Master Board</a>
+        </li>
+        <li class="nav-item">
+            <a href="/user" class="nav-link" *ngIf="showUserBoard" routerLink="user">User</a>
+        </li>
+        <li class="nav-item">
+            <a href="/retailer" class="nav-link" *ngIf="showRetailerBoard" routerLink="retailer">Retailer Board</a>
+        </li>
+    </ul>
 
-</mat-toolbar>
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+        <li class="nav-item">
+            <a href="/auth" class="nav-link" routerLink="auth">Sign in</a>
+        </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+
+        <li class="nav-item">
+            <a href class="nav-link" (click)="logout()">LogOut</a>
+        </li>
+    </ul>
+</nav>

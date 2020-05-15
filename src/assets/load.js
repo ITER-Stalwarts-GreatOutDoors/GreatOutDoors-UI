@@ -1,6 +1,6 @@
 $(function() {
 
-    alert("node")
+
 
     $('[data-toggle=tooltip]').tooltip();
 
