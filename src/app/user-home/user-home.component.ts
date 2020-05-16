@@ -13,7 +13,7 @@ export class UserHomeComponent implements OnInit {
 
   content = '';
   ngOnInit(): void {
-
+    this.nav.show();
     this.userService.getUserBoard().subscribe(
       data => {
         this.content = data;

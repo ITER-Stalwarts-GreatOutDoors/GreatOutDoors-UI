@@ -1,34 +1,31 @@
 <div class="header" *ngIf="nav.visible">
-    <img src="https://i.imgur.com/ebqRTYo.png" alt= "Great OutDoors" class="logo">
+    <img src="https://i.imgur.com/ebqRTYo.png" alt="Great OutDoors" class="logo">
     <div class="header-left" routerLinkActive="active">
-            <a href="/home" class="nav-link" routerLink="home">Home </a>
+        <a href="/home" class="nav-link" routerLink="home" class="font-weight-bold">Home </a>
 
-            <a href="/auth" class="nav-link" routerLink="auth" *ngIf="!isLoggedIn" >Products </a>
 
-            <a href="/user" class="nav-link" routerLink="user"*ngIf="isLoggedIn" >Products </a>
-        
-            <a href="/admin" class="nav-link" routerLink="admin" *ngIf="showAdminBoard">Admin Board</a>
-        
-       
-            <a href="/master" class="nav-link" routerLink="master" *ngIf="showProductMasterBoard">Poduct Master BSoard</a>
-       
-        
-            <a href="/user" class="nav-link" *ngIf="showUserBoard" routerLink="user">User</a>
-        
-      
-            <a href="/retailer" class="nav-link" *ngIf="showRetailerBoard" routerLink="retailer">Retailer Board</a>
-        
+        <a href="/admin" class="nav-link" routerLink="admin" *ngIf="showAdminBoard" class="font-weight-bold">Admin Board</a>
+
+
+        <a href="/master" class="nav-link" routerLink="master" *ngIf="showProductMasterBoard" class="font-weight-bold">Poduct Master Board</a>
+
+
+        <a href="/user" class="nav-link" *ngIf="showUserBoard" routerLink="user" class="font-weight-bold">Products</a>
+
+
+        <a href="/retailer" class="nav-link" *ngIf="showRetailerBoard" routerLink="retailer" class="font-weight-bold">Products</a>
+
     </div>
 
     <div class="header-right" *ngIf="!isLoggedIn">
-        
-            <a href="/auth" class="nav-link" routerLink="auth">Sign in</a>
-        
+
+        <a href="/auth" class="nav-link" routerLink="auth" class="font-weight-bold">Sign in</a>
+
     </div>
 
     <div class="header-right" *ngIf="isLoggedIn">
 
-            <a href class="nav-link" (click)="logout()">LogOut</a>
-    
+        <a href class="nav-link" (click)="logout()" class="font-weight-bold">LogOut</a>
+
     </div>
 </div>

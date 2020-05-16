@@ -11,8 +11,11 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  private roles: string[];
   content: string;
   isLoggedIn = false;
+  isRetailer = false;
+  a = 0;
  
 
   
@@ -22,6 +25,14 @@ export class HomeComponent implements OnInit {
   ngOnInit() { 
 
     this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+      this. isRetailer = this.roles.includes('ROLE_RETAILER');
+
+    }
+
     this.nav.show();
     this.userService.getPublicContent().subscribe(
       data => {
@@ -37,4 +48,6 @@ export class HomeComponent implements OnInit {
   onNavigate(feature: string){
     this.loadedFeature= feature;
 }
+
+
 }
