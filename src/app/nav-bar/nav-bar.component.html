@@ -1,4 +1,57 @@
-<div class="header" *ngIf="nav.visible">
+<div class="cNav" *ngIf="nav.visible">
+
+    <nav class=" navbar navbar-expand-sm navbar-dark bg-custom-2 ">
+
+
+        <a class="navbar-brand " href=#>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTjrtvwUjyE8KuUEo886ziE4hogmrnKxz8vUgkcgyZ6_bud3ydP&usqp=CAU " alt="Logo " loading="lazy " class="logo ">
+        </a>
+        <button type="button " class="navbar-toggler " data-toggle="collapse " data-target="#myMenu ">
+        <span class="navbar-toggler-icon ">
+
+        </span>
+      </button>
+        <div class="collapse navbar-collapse " id="myMenu ">
+            <ul class="nav navbar-nav navbar-right ">
+                <li class="nav-item "><a routerLink="/home" class="nav-link">Home</a></li>
+                <li class="nav-item "><a routerLink="/admin" class="nav-link " *ngIf="showAdminBoard">Admin</a></li>
+                <li class="nav-item "><a routerLink="/user" class="nav-link " *ngIf="showUserBoard">Store</a></li>
+                <li class="nav-item "><a routerLink="/retailer" class="nav-link " *ngIf="showRetailerBoard">Store</a></li>
+                <li class="nav-item "><a routerLink="/cart" class="nav-link " *ngIf="showRetailerBoard ">Cart</a></li>
+                <li class="nav-item "><a routerLink="/wishlist" class="nav-link " *ngIf="showRetailerBoard">Wish List</a></li>
+                <li class="nav-item "><a routerLink="/master" class="nav-link " *ngIf="showProductMasterBoard">Poduct Master</a></li>
+            </ul>
+            <form class="form-inline ml-auto mr-3 " id="Search " *ngIf="isLoggedIn">
+                <input class="form-control mr-sm-2 " type="search " placeholder="Search " aria-label="Search ">
+                <button class="btn btn-sm btn-outline-light my-sm-0 " type="submit "><mat-icon>search</mat-icon>
+                </button>
+            </form>
+
+            <ul class="nav navbar-nav navbar-right ml-auto mr-3">
+                <li class="nav-item "><a routerLink="/auth" class="nav-link " *ngIf="!isLoggedIn">Sign In</a></li>
+            </ul>
+
+            <div class="btn-group dropleft ml-auto mr-3" *ngIf="isLoggedIn">
+                <a class="btn btn-outline-light my-sm-0 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-heart"></i>
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" routerLink="#">Action</a>
+                    <a class="dropdown-item" routerLink="/wishlist">Wish List</a>
+                    <a class="dropdown-item" routerLink="/cart" *ngIf="showRetailerBoard">Cart</a>
+                    <a class="dropdown-item" (click)="logout()">Log Out</a>
+                </div>
+            </div>
+
+        </div>
+
+
+    </nav>
+</div>
+
+
+<!-- <div class="header" *ngIf="nav.visible">
     <img src="https://i.imgur.com/ebqRTYo.png" alt="Great OutDoors" class="logo">
     <div class="header-left" routerLinkActive="active">
         <a href="/home" class="nav-link" routerLink="home" class="font-weight-bold">Home </a>
@@ -28,4 +81,4 @@
         <a href class="nav-link" (click)="logout()" class="font-weight-bold">LogOut</a>
 
     </div>
-</div>
+</div> -->

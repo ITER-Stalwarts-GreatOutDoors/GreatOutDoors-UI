@@ -23,6 +23,8 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { ProductMasterHomeComponent } from './product-master-home/product-master-home.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { UserHomeComponent } from './user-home/user-home.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { UserHomeComponent } from './user-home/user-home.component';
     AdminHomeComponent,
     ProductMasterHomeComponent,
     UserHomeComponent,
+    WishlistComponent,
    
   ],
   imports: [

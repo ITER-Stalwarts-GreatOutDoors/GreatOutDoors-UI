@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddToCartServiceService } from '../_services/add-to-cart-service.service';
 import { NavServiceService } from '../_services/nav-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +12,7 @@ export class CartComponent implements OnInit {
 
 
   products:any;
-  constructor(private service:AddToCartServiceService , public nav:NavServiceService) { }
+  constructor(private service:AddToCartServiceService , public nav:NavServiceService ,private router: Router) { }
 
   ngOnInit(): void {
     this.nav.hide();
@@ -109,6 +110,9 @@ export class CartComponent implements OnInit {
     this.products.splice(index, 1);
   
     
+  }
+  backToShopping(){
+    this.router.navigate(["/retailer"]);
   }
 
 

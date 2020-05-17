@@ -1,5 +1,127 @@
-<div class="container">
-    <header class="jumbotron">
-        <p>{{ content }}</p>
-    </header>
+<div class="container pt-5">
+    <div class="row align-items-center justify-content-between">
+
+
+
+        <div class="col-md-3 col-5 text-right order-md-1">
+
+        </div>
+
+        <div class="col-md-3 order-md-0 mt-2 mt-md-0">
+            <select class="form-control form-control-sm">
+          <option value="">Sort By</option>
+          <option value="">Popular</option>
+          <option value="">Name</option>
+        </select>
+        </div>
+
+    </div>
 </div>
+
+<div class="container">
+    <hr />
+</div>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4 mb-3" *ngFor="let product of products;let i = index">
+            <div class="card h-100">
+                <div class="d-flex justify-content-between position-absolute w-100">
+                    <div class="label-new">
+                        <span class="text-white bg-success small d-flex align-items-center px-2 py-1">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <span class="ml-1">New</span>
+                        </span>
+                    </div>
+                    <div class="label-sale">
+                        <span class="text-white bg-primary small d-flex align-items-center px-2 py-1">
+                <i class="fa fa-tag" aria-hidden="true"></i>
+                <span class="ml-1">Sale</span>
+                        </span>
+                    </div>
+                </div>
+                <a href="#">
+                    <img src="{{product.productURL}}" class="card-img-top" alt="Product" height="200px" width="200px" class="w-100">
+                </a>
+                <div class="card-body px-2 pb-2 pt-1">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <p class="h4 text-primary">₹{{product.price}}</p>
+                        </div>
+                        <div>
+                            <a href="#" class="text-secondary lead" data-toggle="tooltip" data-placement="left" title="Compare">
+                                <i class="fa fa-line-chart" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="text-warning d-flex align-items-center mb-2">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </p>
+                    <p class="mb-0">
+                        <strong>
+                <a href="#" class="text-secondary">{{product.productName}}</a>
+              </strong>
+                    </p>
+                    <p class="mb-1">
+                        <small>
+                <a href="#" class="text-secondary">{{product.manufacture}}</a>
+              </small>
+                    </p>
+                    <div class="d-flex mb-3 justify-content-between">
+                        <div>
+                            <p class="mb-0 small"><b>COLOR#: </b>{{product.colour}}</p>
+                            <p class="mb-0 small"><b>DIMENSION#: </b>{{product.dimension}}</p>
+                            <p class="mb-0 small"><b>MPN#: </b> {{i+1}}MPN2265{{i}}</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="mb-0 small"><b>Free Shipping</b></p>
+                            <p class="mb-0 small text-primary">
+                                <span class="font-weight-bold">MRP:</span>₹{{product.price}}
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+</div>
+
+
+<div class="container">
+    <hr />
+</div>
+
+<div class="container pb-5">
+    <div class="row align-items-center justify-content-between">
+
+        <div class="col-lg-2 col-md-3 col-sm-4 col-7">
+            <div class="input-group input-group-sm">
+
+
+            </div>
+        </div>
+
+        <div class="col-5 text-right">
+
+
+        </div>
+
+    </div>
+</div>
+<footer>
+    <p>Company © ITER_Stalwarts. All rights reserved.</p>
+</footer>

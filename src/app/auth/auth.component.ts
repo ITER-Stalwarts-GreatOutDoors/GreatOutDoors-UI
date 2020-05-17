@@ -91,6 +91,7 @@ export class AuthComponent implements OnInit {
     );
     
     form.reset();
+    this.router.navigate(['']);
    
 
   }

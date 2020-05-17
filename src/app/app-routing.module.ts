@@ -6,6 +6,8 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { ProductMasterHomeComponent } from './product-master-home/product-master-home.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { RetailerhomepageComponent } from './retailerhomepage/retailerhomepage.component';
+import { CartComponent } from './cart/cart.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 
 const routes: Routes = [
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'master', component: ProductMasterHomeComponent },
   { path: 'admin', component: AdminHomeComponent },
   {path:'retailer' , component: RetailerhomepageComponent},
+  {path:'cart' , component: CartComponent},
+  {path:'wishlist' , component: WishlistComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

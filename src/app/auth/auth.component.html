@@ -33,7 +33,7 @@
         <div class="form form-signin">
             <form #authSigninForm="ngForm" (ngSubmit)="onSignin(authSigninForm)">
                 <label for="email">E-MAIL</label>
-                <input type="email" placeholder="Your e-mail" id="email" ngModel name="username" required>
+                <input type="email" placeholder="Your e-mail" id="email" ngModel name="email" required>
                 <label for="password">PASSWORD</label>
                 <input type="password" placeholder="Your password" id="password" ngModel name="password" required minlength="6">
                 <input type="submit" class="form-btn" value="Sign In" />

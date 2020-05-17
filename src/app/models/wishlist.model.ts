@@ -1,7 +1,7 @@
-export class Cart{
+export class Wishlist{
     
     userId: String;
     productId: String;
-    quantity: number;
+    
    
 }
