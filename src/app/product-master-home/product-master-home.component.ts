@@ -18,6 +18,7 @@ export class ProductMasterHomeComponent implements OnInit {
   constructor(private router: Router ,private userService: UserService ,  public nav:NavServiceService  , private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (!this.isLoggedIn) {
       this.router.navigate(["/auth"]);
     }
@@ -28,14 +29,14 @@ export class ProductMasterHomeComponent implements OnInit {
         this.router.navigate(["/home"]);
       }
     }
-    this.userService.getProductMasterBoard().subscribe(
-      data => {
-        this.content = data;
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
+    // this.userService.getProductMasterBoard().subscribe(
+    //   data => {
+    //     this.content = data;
+    //   },
+    //   err => {
+    //     this.content = JSON.parse(err.error).message;
+    //   }
+    // );
   }
 
 }

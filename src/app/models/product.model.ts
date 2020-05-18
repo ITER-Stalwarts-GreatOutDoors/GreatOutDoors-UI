@@ -1,6 +1,5 @@
 export class Product{
-    
-    productId : String;
+
 	price : number ;
     colour : String;
 	dimension : String ;

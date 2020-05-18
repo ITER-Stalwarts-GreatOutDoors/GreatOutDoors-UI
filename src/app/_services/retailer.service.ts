@@ -6,11 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RetailerService {
 
-  productURL:String = "http://localhost:9500/product";
+  private productURL:String = "http://localhost:9500/product";
 
   constructor(private http:HttpClient) { }
 
-  public viewProductsFromCart(){
+  public viewAllProducts(){
     return this.http.get(this.productURL+"/viewAllProducts");
   }
 }

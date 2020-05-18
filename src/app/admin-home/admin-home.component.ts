@@ -18,7 +18,7 @@ export class AdminHomeComponent implements OnInit {
   constructor(private router: Router ,private userService: UserService ,  public nav:NavServiceService  , private tokenStorageService: TokenStorageService) { }
 
   ngOnInit() {
-
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (!this.isLoggedIn) {
       this.router.navigate(["/auth"]);
     }

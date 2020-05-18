@@ -28,6 +28,7 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(){
     this.nav.hide();
+    this.isLoggedIn = !!this.tokenStorage.getToken();
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;

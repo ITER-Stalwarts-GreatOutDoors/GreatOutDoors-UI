@@ -29,7 +29,7 @@ export class RetailerhomepageComponent implements OnInit {
 
   ngOnInit(){
     this.nav.show();
-    let list = this.retailerService.viewProductsFromCart();
+    let list = this.retailerService.viewAllProducts();
     list.subscribe((data) => this.products=data);
 
     this.isLoggedIn = !!this.tokenStorageService.getToken();

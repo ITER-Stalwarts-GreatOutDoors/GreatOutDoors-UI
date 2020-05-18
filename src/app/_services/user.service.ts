@@ -5,6 +5,7 @@ import { Product } from '../models/product.model';
 import { User } from '../models/user.model';
 
 const API_URL = 'http://localhost:9001/app/';
+const productURL= "http://localhost:9500/product";
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +44,8 @@ export class UserService {
   deleteProduct(productId:String): Observable<any> {
     return this.http.delete(API_URL + 'master/deleteProduct?productId='+productId,{ responseType: 'text' });
   }
+
+  
 
 
 

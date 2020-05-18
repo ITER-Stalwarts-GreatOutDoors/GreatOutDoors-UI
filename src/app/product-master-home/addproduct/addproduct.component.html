@@ -1,39 +1,39 @@
 
 <div class="container">  
-    <form id="contact" action="" method="post">
+    <form id="contact" #f="ngForm" (ngSubmit)="onAddProduct(f)">
       <h3>Add a new  Product</h3>
        <br>
        <br>
        <fieldset>
-        <input placeholder=" Price" type="text"  name="price" required >
-      </fieldset>
-      <fieldset>
-        <input placeholder="Colour" type="text" name="colour"required >
-      </fieldset>
-      <fieldset>
-        <input placeholder=" Dimension" type="text" name="dimension" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Specification" type="text" name="specification" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Manufacture" type="text" name="manufacture" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder=" Quantity" type="number" class="form-control" name="quatity" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder=" Product Category" type="number" class="form-control" name ="productCategory" required>
+        <input placeholder=" Product Name" type="text" class="form-control" ngModel name="productName" required >
       </fieldset>
        <fieldset>
-        <input placeholder=" Product Name" type="text" class="form-control" name="productName" required >
+        <input placeholder=" Price" type="text" ngModel name="price" required >
       </fieldset>
       <fieldset>
-        <input placeholder=" Product URL" type="url" name="productURL" required>
+        <input placeholder="Colour" type="text" ngModel name="colour"required >
+      </fieldset>
+      <fieldset>
+        <input placeholder=" Dimension" type="text" ngModel name="dimension" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Specification" type="text" ngModel name="specification" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Manufacture" type="text" ngModel name="manufacture" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder=" Quantity" type="number"  class="form-control" ngModel name="quantity" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder=" Product Category" type="number" class="form-control" ngModel name ="productCategory" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder=" Product URL" type="url" ngModel name="productURL" required>
       </fieldset>
       <br>
       <fieldset>
-        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending"><a routerLink="/viewprofile">Submit</a></button>
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
       </fieldset>
     </form>
    

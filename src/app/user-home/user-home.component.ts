@@ -21,13 +21,14 @@ export class UserHomeComponent implements OnInit {
   content = '';
   ngOnInit(): void {
     this.nav.show();
+ 
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       }
     if(this.isLoggedIn===false){
       this.router.navigate([""]);
     }
-    let list = this.retailerService.viewProductsFromCart();
+    let list = this.retailerService.viewAllProducts();
     list.subscribe((data) => this.products=data);
 
     // this.userService.getUserBoard().subscribe(

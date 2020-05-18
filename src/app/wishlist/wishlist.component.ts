@@ -23,6 +23,7 @@ export class WishlistComponent implements OnInit {
   constructor(private service:AddToWishlistService , public nav:NavServiceService ,private router: Router , private addToCartService:AddToCartServiceService , private tokenStorageService: TokenStorageService ) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (!this.isLoggedIn) {
       this.router.navigate(["/auth"]);
     }
