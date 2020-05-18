@@ -24,6 +24,10 @@ import { ProductMasterHomeComponent } from './product-master-home/product-master
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { RetailerProfileComponent } from './retailerhomepage/retailer-profile/retailer-profile.component';
+import { RetailerEditProfileComponent } from './retailerhomepage/retailer-edit-profile/retailer-edit-profile.component';
+import { AddproductComponent } from './product-master-home/addproduct/addproduct.component';
+import { ViewproductComponent } from './product-master-home/viewproduct/viewproduct.component';
 
 
 @NgModule({
@@ -39,6 +43,10 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     ProductMasterHomeComponent,
     UserHomeComponent,
     WishlistComponent,
+    RetailerProfileComponent,
+    RetailerEditProfileComponent,
+    AddproductComponent,
+    ViewproductComponent,
    
   ],
   imports: [

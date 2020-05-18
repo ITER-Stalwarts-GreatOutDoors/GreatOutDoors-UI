@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AddToCartServiceService } from '../_services/add-to-cart-service.service';
 import { NavServiceService } from '../_services/nav-service.service';
 import { Router } from '@angular/router';
+import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,11 +11,27 @@ import { Router } from '@angular/router';
 })
 export class CartComponent implements OnInit {
 
+  private roles: string[];
+  isLoggedIn = false;
 
   products:any;
-  constructor(private service:AddToCartServiceService , public nav:NavServiceService ,private router: Router) { }
+  constructor(private service:AddToCartServiceService , public nav:NavServiceService ,private router: Router , private tokenStorageService: TokenStorageService) { }
 
+  
   ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (!this.isLoggedIn) {
+      this.router.navigate(["/auth"]);
+    }
+    else{
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+      if(!this.roles.includes('ROLE_RETAILER')){
+        this.router.navigate(["/home"]);
+      }
+    }
+    
     this.nav.hide();
     let list = this.service.viewProductsFromCart();
     list.subscribe((data) => this.products=data);

@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+body {
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+h4 {
+    color: white
+}
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+body {
+    font-family: 'Lato', 'sans-serif';
+}
+
+.profile {
+    min-height: 355px;
+    display: inline-block;
+}
+
+figcaption.ratings {
+    margin-top: 20px;
+}
+
+figcaption.ratings a {
+    color: #f1c40f;
+    font-size: 11px;
+}
+
+figcaption.ratings a:hover {
+    color: #f39c12;
+    text-decoration: none;
+}
+
+.divider {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.emphasis {
+    border-top: 4px solid transparent;
+}
+
+.emphasis:hover {
+    border-top: 4px solid #1abc9c;
+}
+
+.emphasis h2 {
+    margin-bottom: 0;
+}
+
+span.tags {
+    background: #1abc9c;
+    border-radius: 2px;
+    color: #f5f5f5;
+    font-weight: bold;
+    padding: 2px 4px;
+}
+
+.dropdown-menu {
+    background-color: #34495e;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    width: 250px;
+    margin-left: -125px;
+    left: 50%;
+}
+
+.dropdown-menu .divider {
+    background: none;
+}
+
+.dropdown-menu>li>a {
+    color: #f5f5f5;
+}
+
+.dropup .dropdown-menu {
+    margin-bottom: 10px;
+}
+
+.dropup .dropdown-menu:before {
+    content: "";
+    border-top: 10px solid #34495e;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    margin-left: -10px;
+    z-index: 10;
+}
+
+body {
+    margin: 20px;
+    padding: 20px;
+    background: #f1f1f1;
+    font-family: helvetica;
+    box-sizing: border-box;
+}
+
+.card-container {
+    width: 300px;
+    height: 430px;
+    background: #FFF;
+    border-radius: 8px;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    box-shadow: 0px 1px 10px 1px #405070;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.upper-container {
+    height: 150px;
+    background: #EAEFF8;
+}
+
+.image-container {
+    background: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 5px;
+    transform: translate(100px, 100px)
+}
+
+.image-container img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.lower-container {
+    height: 280px;
+    background: #FFF;
+    padding: 20px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.lower-container h3,
+h4 {
+    box-sizing: border-box;
+    line-height: .6;
+    font-weight: bold;
+}
+
+.lower-container h4 {
+    color: blue;
+    opacity: .4;
+    font-weight: light;
+}
+
+.lower-container p {
+    color: gray;
+    font-size: 16px;
+    margin-bottom: 30px;
+    font-weight: light;
+}
+
+.lower-container .btn {
+    padding: 12px 20px;
+    background: #28C3F5;
+    border: none;
+    color: white;
+    border-radius: 32px;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all .1s ease-in;
+}
+
+.lower-container .btn:hover {
+    background: transparent;
+    color: #28C3F5;
+    border: 1px solid #28C3F5;
+}
+
+
+/* Toggle Styles */
+
+#viewport {
+    padding-left: 250px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#content {
+    width: 100%;
+    position: relative;
+    margin-right: 0;
+}
+
+
+/* Sidebar Styles */
+
+#sidebar {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 250px;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: rgb(64, 55, 79);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#sidebar header {
+    background-color: #263238;
+    font-size: 20px;
+    line-height: 52px;
+    text-align: center;
+}
+
+#sidebar header a {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+}
+
+#sidebar header a:hover {
+    color: #fff;
+}
+
+#sidebar .nav a {
+    background: none;
+    border-bottom: 1px solid #455A64;
+    color: #CFD8DC;
+    font-size: 14px;
+    padding: 16px 24px;
+}
+
+#sidebar .nav a:hover {
+    background: none;
+    color: #ECEFF1;
+}
+
+#sidebar .nav a i {
+    margin-right: 16px;
+}

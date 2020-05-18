@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
 import { NavServiceService } from '../_services/nav-service.service';
+import { TokenStorageService } from '../_services/token-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-home',
@@ -10,10 +12,24 @@ import { NavServiceService } from '../_services/nav-service.service';
 export class AdminHomeComponent implements OnInit {
 
   content = '';
+  private roles: string[];
+  isLoggedIn = false;
 
-  constructor(private userService: UserService ,  public nav:NavServiceService) { }
+  constructor(private router: Router ,private userService: UserService ,  public nav:NavServiceService  , private tokenStorageService: TokenStorageService) { }
 
   ngOnInit() {
+
+    if (!this.isLoggedIn) {
+      this.router.navigate(["/auth"]);
+    }
+    else{
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+      if(!this.roles.includes('ROLE_ADMIN')){
+        this.router.navigate(["/home"]);
+      }
+    }
+    this.nav.show();
     this.userService.getAdminBoard().subscribe(
       data => {
         this.content = data;

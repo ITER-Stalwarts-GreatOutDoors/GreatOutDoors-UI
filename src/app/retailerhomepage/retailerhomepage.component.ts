@@ -16,13 +16,14 @@ import { Wishlist } from '../models/wishlist.model';
 })
 export class RetailerhomepageComponent implements OnInit {
 
+  private roles: string[];
   isLoggedIn = false;
   content = '';
   products:any;
   cart:Cart;
   wishList:Wishlist
-   constructor(private tokenStorage: TokenStorageService ,private retailerService:RetailerService,  
-    public nav:NavServiceService ,private router: Router , private addToCartService:AddToCartServiceService , private wishListService:AddToWishlistService) { 
+   constructor(private retailerService:RetailerService,  
+    public nav:NavServiceService ,private router: Router , private addToCartService:AddToCartServiceService , private wishListService:AddToWishlistService , private tokenStorageService: TokenStorageService) { 
      this.loadScripts(); 
    } 
 
@@ -31,11 +32,17 @@ export class RetailerhomepageComponent implements OnInit {
     let list = this.retailerService.viewProductsFromCart();
     list.subscribe((data) => this.products=data);
 
-    if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
-      }
-    if(this.isLoggedIn===false){
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (!this.isLoggedIn) {
+      this.router.navigate(["/auth"]);
+    }
+    else{
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+      if(!this.roles.includes('ROLE_RETAILER')){
         this.router.navigate([""]);
+      }
     }
     // this.userService.getRetailerBoard().subscribe(
     //   data => {
