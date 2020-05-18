@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Retailer</h2>         
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>Retailer Name</th>
+          <th>Retailer Phone Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let retailer of retailers;let i = index">
+          <td>{{retailer.retailerName}}</td>
+          <td>{{retailer.retailerPhoneNumber}}</td>
+          <td><button class="btn btn-danger" (click)="deleteProduct(i)">Delete</button></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+

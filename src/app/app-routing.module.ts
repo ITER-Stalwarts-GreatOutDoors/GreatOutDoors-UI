@@ -12,6 +12,7 @@ import { AddproductComponent } from './product-master-home/addproduct/addproduct
 import { ViewproductComponent } from './product-master-home/viewproduct/viewproduct.component';
 
 
+
 const routes: Routes = [
   {path: 'auth',component: AuthComponent },
   { path: 'home', component: HomeComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'wishlist' , component: WishlistComponent},
   {path:'master/addproduct' , component: AddproductComponent},
   {path:'master/viewproduct' , component: ViewproductComponent},
+  {path: 'admin/addretailer' , component: Addretailer},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

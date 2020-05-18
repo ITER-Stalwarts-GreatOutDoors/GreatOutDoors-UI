@@ -28,6 +28,10 @@ import { RetailerProfileComponent } from './retailerhomepage/retailer-profile/re
 import { RetailerEditProfileComponent } from './retailerhomepage/retailer-edit-profile/retailer-edit-profile.component';
 import { AddproductComponent } from './product-master-home/addproduct/addproduct.component';
 import { ViewproductComponent } from './product-master-home/viewproduct/viewproduct.component';
+import { AddretailerComponent } from './admin-home/addretailer/addretailer.component';
+import { AddproductmasterComponent } from './admin-home/addproductmaster/addproductmaster.component';
+import { ViewproductmasterComponent } from './admin-home/viewproductmaster/viewproductmaster.component';
+import { ViewretailerComponent } from './viewretailer/viewretailer.component';
 
 
 @NgModule({
@@ -47,6 +51,10 @@ import { ViewproductComponent } from './product-master-home/viewproduct/viewprod
     RetailerEditProfileComponent,
     AddproductComponent,
     ViewproductComponent,
+    AddretailerComponent,
+    AddproductmasterComponent,
+    ViewproductmasterComponent,
+    ViewretailerComponent,
    
   ],
   imports: [

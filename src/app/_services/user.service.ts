@@ -75,7 +75,7 @@ export class UserService {
     return this.http.post(API_URL + 'admin/deleteRetailer',user, { responseType: 'text' });
   }
 
-  viewAllRetailer(): Observable<any> {
+  viewAllRetailers(): Observable<any> {
     return this.http.get(API_URL+'admin/viewAllRetailers')
   }
 
