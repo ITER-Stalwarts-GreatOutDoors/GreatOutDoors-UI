@@ -5,6 +5,7 @@ import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { Router } from '@angular/router';
 import { NavServiceService } from '../_services/nav-service.service';
+import { NotificationService } from '../_services/notification.service';
 
 
 @Component({
@@ -23,8 +24,9 @@ export class AuthComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
   currentRole = '';
+ 
 
-  constructor(private authService: AuthService ,  private tokenStorage: TokenStorageService , private router: Router ,  public nav:NavServiceService) { this.loadScripts()}
+  constructor(private notificationService:NotificationService,private authService: AuthService ,  private tokenStorage: TokenStorageService , private router: Router ,  public nav:NavServiceService) { this.loadScripts()}
 
   ngOnInit(){
     this.nav.hide();
@@ -54,7 +56,6 @@ export class AuthComponent implements OnInit {
   
   onSignin(form: NgForm){
 
-    console.log(form.value)
     this.authService.login(form.value).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
@@ -63,36 +64,46 @@ export class AuthComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
+        this.notificationService.showSuccess("Welcome,"+this.tokenStorage.getUser().username+"!!","Logged in Successfully");
         this.reloadPage();
       },
       err => {
         this.errorMessage = err.error.message;
+        this.notificationService.showError("Please try again!!","Wrong Email or Password");
         this.isLoginFailed = true;
       }
     );
-    console.log(this.roles);
+  
 
-    form.reset();
+    
 
   }
 
   onSignup(form: NgForm){
     this.authService.register(form.value).subscribe(
       data => {
-        console.log(data);
+        
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         this.isLoggedIn = true;
+        this.isLoginFailed = false;
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveUser(data);
+        this.roles = this.tokenStorage.getUser().roles;
+        this.notificationService.showSuccess("Welcome,"+this.tokenStorage.getUser().username+"!!","Registered Successfully");
+        this.reloadPage();
+        
 
       },
       err => {
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
+        this.notificationService.showError(this.errorMessage,"Invalid input!")
+        
       }
     );
+
     
-    form.reset();
-    this.router.navigate(['']);
    
 
   }
@@ -107,6 +118,11 @@ export class AuthComponent implements OnInit {
 } 
 reloadPage() {
   window.location.reload();
+}
+
+forgetPassword(){
+  this.notificationService.showInfo("Please verify your account!","A mail has been send to your account");
+  
 }
 
 // getRoleAndNavigate(){

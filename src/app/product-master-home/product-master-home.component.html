@@ -4,26 +4,26 @@
     <!-- Sidebar -->
     <div id="sidebar">
       <header>
-        <a href="#">Hello ProductMaster</a>
+        <a href="#">Hello {{retailerName}}</a>
       </header>
       <ul class="nav list-group">
-        <li class="li list-group-item">
-          <a href="#">
+        <li >
+          <a href="#" class="list-group-item list-group-item-action">
             <i class="zmdi zmdi-view-dashboard">Home</i>
           </a>
         </li>
-        <li class="list-group-item">
-            <a href="master/addproduct">
+        <li>
+            <a href="master/addproduct" class="list-group-item list-group-item-action">
               <i class="zmdi zmdi-link">Add product</i>
             </a>
           </li>
-        <li class="list-group-item">
-            <a href="master/viewproduct">
+        <li >
+            <a href="master/viewproduct" class="list-group-item list-group-item-action">
               <i class="zmdi zmdi-link">View all products</i> 
             </a>
           </li>
-          <li class="list-group-item">
-            <a href="#">
+          <li >
+            <a href="#" (click)="logout()" class="list-group-item list-group-item-action">
               <i class="zmdi zmdi-info-outline">Log out</i> 
             </a>
           </li>

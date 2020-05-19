@@ -1,22 +1,22 @@
 <div class="container">  
-    <form id="contact" action="" method="post">
+    <form id="contact" #form="ngForm" (ngSubmit)="AddProductMaster(form)">
       <h3>Add Product Master</h3>
       <br>
 
       <fieldset>
-        <input placeholder="product Master name" type="text" class="form-control" >
+        <input placeholder="product Master Name" type="text" class="form-control" ngModel name="username" >
       </fieldset>
       <fieldset>
-        <input placeholder="Product Master Address" type="email" tabindex="2" required>
+        <input placeholder="Product Master Email" type="email" tabindex="2" required ngModel name="email">
       </fieldset>
       <fieldset>
-        <input placeholder="Product Master Phone Number" type="tel" tabindex="3" required>
+        <input placeholder="Product Master Phone Number" type="tel" tabindex="3" required ngModel name="phoneno">
       </fieldset>
       <fieldset>
-        <input placeholder="Product Master Password" type="password" tabindex="3" required>
+        <input placeholder="Product Master Password" ngModel name="password" class="form-control" type="password" tabindex="3" required >
       </fieldset>
       <fieldset>
-          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending"><a routerLink="/viewprofile">Submit</a></button>
+          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
       </fieldset>
     </form>
    

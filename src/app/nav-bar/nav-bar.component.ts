@@ -18,6 +18,7 @@ export class NavBarComponent implements OnInit {
   showRetailerBoard = false;
   showUserBoard = false;
   username: string;
+  name = '';
 
   constructor(private tokenStorageService: TokenStorageService , public nav:NavServiceService) { }
 
@@ -27,6 +28,7 @@ export class NavBarComponent implements OnInit {
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
+      this.name = user.username;
 
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showProductMasterBoard = this.roles.includes('ROLE_PRODUCT_MASTER');

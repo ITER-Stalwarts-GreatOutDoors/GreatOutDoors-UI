@@ -3,15 +3,17 @@
     <table class="table table-dark table-striped">
       <thead>
         <tr>
+          <th>Retailer Id</th>
           <th>Retailer Name</th>
           <th>Retailer Phone Number</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let retailer of retailers;let i = index">
-          <td>{{retailer.retailerName}}</td>
-          <td>{{retailer.retailerPhoneNumber}}</td>
-          <td><button class="btn btn-danger" (click)="deleteProduct(i)">Delete</button></td>
+          <td>{{retailer.id}}</td>
+          <td>{{retailer.username}}</td>
+          <td>{{retailer.phoneno}}</td>
+          <td><button class="btn btn-danger" (click)="deleteRetailer(i)">Delete</button></td>
         </tr>
         
       </tbody>

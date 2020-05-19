@@ -17,7 +17,7 @@
                 <li class="nav-item "><a routerLink="/admin" class="nav-link" *ngIf="showAdminBoard">Admin</a></li>
                 <li class="nav-item "><a routerLink="/user" class="nav-link" *ngIf="showUserBoard">Store</a></li>
                 <li class="nav-item "><a routerLink="/retailer" class="nav-link " *ngIf="showRetailerBoard">Store</a></li>
-                <li class="nav-item "><a routerLink="/cart" class="nav-link" *ngIf="showRetailerBoard ">Cart</a></li>
+                <li class="nav-item "><a routerLink="/cart" class="nav-link" *ngIf="showRetailerBoard">Cart</a></li>
                 <li class="nav-item "><a routerLink="/wishlist" class="nav-link" *ngIf="showRetailerBoard">Wish List</a></li>
                 <li class="nav-item "><a routerLink="/master" class="nav-link" *ngIf="showProductMasterBoard">Poduct Master</a></li>
             </ul>
@@ -31,15 +31,16 @@
                 <li class="nav-item "><a routerLink="/auth" class="nav-link " *ngIf="!isLoggedIn">Sign In</a></li>
             </ul>
 
-            <div class="btn-group dropleft ml-auto mr-3" *ngIf="isLoggedIn">
+            <div class="btn-group dropdown ml-auto mr-3" *ngIf="isLoggedIn">
                 <a class="btn btn-outline-light my-sm-0 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-heart"></i>
+                    <i class="fa fa-heart">Hello, {{name}} </i>
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" routerLink="#">Action</a>
-                    <a class="dropdown-item" routerLink="/wishlist">Wish List</a>
-                    <a class="dropdown-item" routerLink="/cart" *ngIf="showRetailerBoard">Cart</a>
+                    <a class="dropdown-item" routerLink="/retailer/profile" *ngIf="showRetailerBoard">View Profile</a>
+                    <a class="dropdown-item" routerLink="/user" *ngIf="isLoggedIn && !showRetailerBoard">Store</a>
+                    <a class="dropdown-item" routerLink="/wishlist" *ngIf="showRetailerBoard">Wish List</a>
+                    <a class="dropdown-item" routerLink="/cart" *ngIf="showRetailerBoard">Cart</a> 
                     <a class="dropdown-item" (click)="logout()" routerLink="#">Log Out</a>
                 </div>
             </div>

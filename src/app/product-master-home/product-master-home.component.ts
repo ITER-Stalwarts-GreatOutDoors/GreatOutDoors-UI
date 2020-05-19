@@ -14,16 +14,19 @@ export class ProductMasterHomeComponent implements OnInit {
   content = '';
   private roles: string[];
   isLoggedIn = false;
-
+  retailerName = '';
   constructor(private router: Router ,private userService: UserService ,  public nav:NavServiceService  , private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.nav.show();
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (!this.isLoggedIn) {
-      this.router.navigate(["/auth"]);
+      this.router.navigate(["/home"]);
     }
+    
     else{
       const user = this.tokenStorageService.getUser();
+      this.retailerName=user.username;
       this.roles = user.roles;
       if(!this.roles.includes('ROLE_PRODUCT_MASTER')){
         this.router.navigate(["/home"]);
@@ -37,6 +40,11 @@ export class ProductMasterHomeComponent implements OnInit {
     //     this.content = JSON.parse(err.error).message;
     //   }
     // );
+  }
+
+  logout() {
+    this.tokenStorageService.signOut();
+    window.location.reload();
   }
 
 }

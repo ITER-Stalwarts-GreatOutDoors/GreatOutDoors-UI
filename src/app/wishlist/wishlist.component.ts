@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Cart } from '../models/cart.model';
 import { AddToCartServiceService } from '../_services/add-to-cart-service.service';
 import { TokenStorageService } from '../_services/token-storage.service';
+import { NotificationService } from '../_services/notification.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -19,8 +20,9 @@ export class WishlistComponent implements OnInit {
   wishList:Wishlist;
   products:any;
   cart:Cart;
+  private userId='';
 
-  constructor(private service:AddToWishlistService , public nav:NavServiceService ,private router: Router , private addToCartService:AddToCartServiceService , private tokenStorageService: TokenStorageService ) { }
+  constructor(private notificationService:NotificationService,private service:AddToWishlistService , public nav:NavServiceService ,private router: Router , private addToCartService:AddToCartServiceService , private tokenStorageService: TokenStorageService ) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -30,6 +32,7 @@ export class WishlistComponent implements OnInit {
     else{
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
+      this.userId=user.id;
       if(!this.roles.includes('ROLE_RETAILER')){
         this.router.navigate(["/home"]);
       }
@@ -51,9 +54,12 @@ export class WishlistComponent implements OnInit {
 
 
   removeItem(index) {
+    if(this.itemCount()==1){
+      this.notificationService.showWarning("Please add items!!","No item present in the wishlist");
+    }
     var message;
     this.wishList = new Wishlist();
-    this.wishList.userId = "user1";
+    this.wishList.userId = this.userId;
     this.wishList.productId = this.products[index].productId;
     
     
@@ -66,8 +72,8 @@ export class WishlistComponent implements OnInit {
   addItemToCart(index){
     var message;
     this.cart = new Cart();
-    //to be changed
-    this.cart.userId = "user1";
+ 
+    this.cart.userId = this.userId;
     this.cart.productId = this.products[index].productId;
     this.cart.quantity =1;
     let itemAddedToCart = this.addToCartService.addToCart(this.cart);

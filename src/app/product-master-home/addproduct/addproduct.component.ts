@@ -4,6 +4,7 @@ import { UserService } from 'src/app/_services/user.service';
 import { Product } from 'src/app/models/product.model';
 import { Router } from '@angular/router';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import { NotificationService } from 'src/app/_services/notification.service';
 
 @Component({
   selector: 'app-addproduct',
@@ -13,7 +14,7 @@ import { TokenStorageService } from 'src/app/_services/token-storage.service';
 export class AddproductComponent implements OnInit {
 
   product:Product;
-  constructor(private userService:UserService, private router: Router, private tokenStorageService: TokenStorageService) { }
+  constructor(private notificationService:NotificationService,private userService:UserService, private router: Router, private tokenStorageService: TokenStorageService) { }
   private roles: string[];
   isLoggedIn = false;
 
@@ -45,7 +46,18 @@ export class AddproductComponent implements OnInit {
     this.product.price = form.value.price;
     console.log(this.product);
     let add = this.userService.addProduct(this.product);
-    add.subscribe((data)=>message=data);
+    add.subscribe(
+      
+      data=>{
+        message=data
+        this.notificationService.showSuccess("Successfully!!","Product added")
+      },
+      err=>{
+        this.notificationService.showError("Please try again!!","Fail to add product");
+      }
+      
+      );
+
     this.router.navigate(["/master"]);
 
   }

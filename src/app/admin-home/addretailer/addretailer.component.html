@@ -1,22 +1,22 @@
 <div class="container">  
-    <form id="contact" action="" method="post">
+    <form id="contact" #form="ngForm" (ngSubmit)="AddRetailer(form)">
       <h3>Add Retailer</h3>
       <br>
 
       <fieldset>
-        <input placeholder="Retailer name" type="text" class="form-control" >
+        <input placeholder="Retailer name" type="text" class="form-control" required ngModel name="username">
       </fieldset>
       <fieldset>
-        <input placeholder="Retailer Email Address" type="email" tabindex="2" required>
+        <input placeholder="Retailer Email Address" ngModel name="email" type="email" tabindex="2" required email>
       </fieldset>
       <fieldset>
-        <input placeholder="Retailer Phone Number" type="tel" tabindex="3" required>
+        <input placeholder="Retailer Phone Number" ngModel name="phoneno" type="tel" tabindex="3" required>
       </fieldset>
       <fieldset>
-        <input placeholder="Retailer Password" type="password" tabindex="3" required>
+        <input placeholder="Retailer Password" ngModel name="password" class="form-control"  type="password" tabindex="3" required>
       </fieldset>
       <fieldset>
-        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending"><a routerLink="/viewprofile">Submit</a></button>
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
       </fieldset>
     </form>
    

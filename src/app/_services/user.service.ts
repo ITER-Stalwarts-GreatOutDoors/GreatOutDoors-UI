@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product.model';
 import { User } from '../models/user.model';
 
 const API_URL = 'http://localhost:9001/app/';
-const productURL= "http://localhost:9500/product";
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
 
+
+export class UserService {
+ 
+
+  
   constructor(private http: HttpClient) { }
 
   getPublicContent(): Observable<any> {
@@ -55,12 +61,12 @@ export class UserService {
     return this.http.post(API_URL + 'admin/addProductMaster',user, { responseType: 'text' });
   }
 
-  deleteProductMaster(user:User): Observable<any> {
-    return this.http.post(API_URL + 'admin/deleteProductMaster',user, { responseType: 'text' });
+  deleteProductMaster(userId:Number): Observable<any> {
+    return this.http.delete(API_URL + 'admin/deleteProductMaster?userId='+userId,{ responseType: 'text' });
   }
 
-  viewAllProductMasters(): Observable<any> {
-    return this.http.get(API_URL+'admin/viewAllProductMasters')
+  viewAllProductMasters(): Observable<any>{
+    return this.http.get(API_URL+'admin/viewAllProductMasters',httpOptions);
   }
 
 
@@ -71,8 +77,8 @@ export class UserService {
     return this.http.post(API_URL + 'admin/addRetailer',user,{ responseType: 'text' });
   }
 
-  deleteRetailer(user:User): Observable<any> {
-    return this.http.post(API_URL + 'admin/deleteRetailer',user, { responseType: 'text' });
+  deleteRetailer(userId:Number): Observable<any> {
+    return this.http.delete(API_URL + 'admin/deleteRetailer?userId='+userId, { responseType: 'text' });
   }
 
   viewAllRetailers(): Observable<any> {

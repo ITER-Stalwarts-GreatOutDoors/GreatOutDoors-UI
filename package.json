@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~9.0.5",
+    "@angular/animations": "^9.0.7",
     "@angular/cdk": "^9.2.3",
     "@angular/common": "~9.0.5",
     "@angular/compiler": "~9.0.5",
@@ -26,6 +26,7 @@
     "compass-mixins": "^0.12.10",
     "install": "^0.13.0",
     "jquery": "^3.5.1",
+    "ngx-toastr": "^12.0.1",
     "popper.js": "^1.16.1",
     "rxjs": "^6.5.5",
     "slick-carousel": "^1.8.1",

@@ -10,7 +10,12 @@ import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { AddproductComponent } from './product-master-home/addproduct/addproduct.component';
 import { ViewproductComponent } from './product-master-home/viewproduct/viewproduct.component';
-
+import { RetailerProfileComponent } from './retailerhomepage/retailer-profile/retailer-profile.component';
+import { RetailerEditProfileComponent } from './retailerhomepage/retailer-edit-profile/retailer-edit-profile.component';
+import { AddretailerComponent } from './admin-home/addretailer/addretailer.component';
+import { AddproductmasterComponent } from './admin-home/addproductmaster/addproductmaster.component';
+import { ViewproductmasterComponent } from './admin-home/viewproductmaster/viewproductmaster.component';
+import { ViewretailerComponent } from './admin-home/viewretailer/viewretailer.component';
 
 
 const routes: Routes = [
@@ -24,7 +29,13 @@ const routes: Routes = [
   {path:'wishlist' , component: WishlistComponent},
   {path:'master/addproduct' , component: AddproductComponent},
   {path:'master/viewproduct' , component: ViewproductComponent},
-  {path: 'admin/addretailer' , component: Addretailer},
+  {path:'retailer/profile' , component: RetailerProfileComponent},
+  {path:'retailer/edit' , component: RetailerEditProfileComponent},
+  {path:'admin/addretailer' , component: AddretailerComponent},
+  {path:'admin/addproductmaster' , component: AddproductmasterComponent},
+  {path:'admin/viewretailers' , component: ViewretailerComponent},
+  {path:'admin/viewproductmaster' , component: ViewproductmasterComponent},
+
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

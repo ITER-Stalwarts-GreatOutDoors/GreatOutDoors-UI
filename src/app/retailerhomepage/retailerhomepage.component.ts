@@ -8,6 +8,7 @@ import { AddToCartServiceService } from '../_services/add-to-cart-service.servic
 import { Cart } from '../models/cart.model';
 import { AddToWishlistService } from '../_services/add-to-wishlist.service';
 import { Wishlist } from '../models/wishlist.model';
+import { NotificationService } from '../_services/notification.service';
 
 @Component({
   selector: 'app-retailerhomepage',
@@ -22,7 +23,8 @@ export class RetailerhomepageComponent implements OnInit {
   products:any;
   cart:Cart;
   wishList:Wishlist
-   constructor(private retailerService:RetailerService,  
+  private userId ='';
+   constructor(private notificationService:NotificationService, private retailerService:RetailerService,  
     public nav:NavServiceService ,private router: Router , private addToCartService:AddToCartServiceService , private wishListService:AddToWishlistService , private tokenStorageService: TokenStorageService) { 
      this.loadScripts(); 
    } 
@@ -35,11 +37,12 @@ export class RetailerhomepageComponent implements OnInit {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (!this.isLoggedIn) {
-      this.router.navigate(["/auth"]);
+      this.router.navigate(["/home"]);
     }
     else{
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
+      this.userId=user.id;
       if(!this.roles.includes('ROLE_RETAILER')){
         this.router.navigate([""]);
       }
@@ -58,24 +61,39 @@ export class RetailerhomepageComponent implements OnInit {
     var message;
     this.cart = new Cart();
     //to be changed
-    this.cart.userId = "user1";
+    this.cart.userId = this.userId;
     this.cart.productId = this.products[index].productId;
     this.cart.quantity =1;
     let itemAddedToCart = this.addToCartService.addToCart(this.cart);
-    itemAddedToCart.subscribe((data) => message=data);
+    itemAddedToCart.subscribe(
+      data =>{ 
+        message=data
+        this.notificationService.showSuccess("Successfully!!","Item added to cart");
+      },
+      err =>{
+        this.notificationService.showError("Please try again!!","Fail to add item");
+      }
+      
+      );
     
     
   }
 
   addProductToWishList(index){
- 
+    
     var message;
     this.wishList = new Wishlist();
     this.wishList.productId=this.products[index].productId;
     //to be changed
-    this.wishList.userId = "user1";
+    this.wishList.userId = this.userId;
     let itemAddedToWishList = this.wishListService.addToWishList(this.wishList);
-    itemAddedToWishList.subscribe((data) => message=data);
+    itemAddedToWishList.subscribe(
+      data =>{ 
+        this.notificationService.showSuccess("Successfully!!","Item added to wishlist");
+        message=data
+      }
+      
+      );
 
   }
   

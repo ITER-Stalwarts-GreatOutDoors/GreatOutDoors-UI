@@ -3,57 +3,52 @@
     <!-- Sidebar -->
     <div id="sidebar">
       <header>
-        <a href="#">Hello Admin</a>
+        <a href="#">Dashboard</a>
       </header>
-      <ul class="nav">
+      <ul class="nav list-group">
         <li>
-          <a href="#">
-            <i class="zmdi zmdi-view-dashboard"></i> Dashboard
-          </a>
-        </li>
-        <li>
-          <a routerLink="/adminform">
+          <a href="admin/addproductmaster" class="list-group-item list-group-item-action">
             <i class="zmdi zmdi-link"></i> Add Product Master
           </a>
         </li>
         <li>
-            <a href="#">
-              <i class="zmdi zmdi-calendar"></i> View Product Master
+            <a href="admin/viewproductmaster" class="list-group-item list-group-item-action">
+              <i class="zmdi zmdi-calendar"></i> View Product Masters
             </a>
           </li>
         <li>
-          <a routerLink="/retailerform">
+          <a href="admin/addretailer" class="list-group-item list-group-item-action">
             <i class="zmdi zmdi-widgets"></i>Add Retailer
           </a>
         </li>
         <li>
-            <a href="#">
-              <i class="zmdi zmdi-widgets"></i>View Retailer
+            <a href="admin/viewretailers" class="list-group-item list-group-item-action">
+              <i class="zmdi zmdi-widgets"></i>View Retailers
             </a>
           </li>
         
         <li>
-          <a href="#">
+          <a href="#" class="list-group-item list-group-item-action">
             <i class="zmdi zmdi-info-outline"></i> View Shelf Time Report
           </a>
         </li>
         <li>
-            <a href="#">
+            <a href="#" class="list-group-item list-group-item-action">
               <i class="zmdi zmdi-info-outline"></i> View Delivery Time Report
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#" class="list-group-item list-group-item-action">
               <i class="zmdi zmdi-info-outline"></i> View Growth Report
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#" class="list-group-item list-group-item-action">
               <i class="zmdi zmdi-info-outline"></i> View Revenue Report
             </a>
           </li>
           <li>
-            <a href="#">
+            <a  href="#" (click)="logout()" class="list-group-item list-group-item-action">
               <i class="zmdi zmdi-info-outline"></i> Log out
             </a>
           </li>

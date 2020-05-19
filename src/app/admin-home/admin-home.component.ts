@@ -40,4 +40,9 @@ export class AdminHomeComponent implements OnInit {
     );
   }
 
+  logout() {
+    this.tokenStorageService.signOut();
+    window.location.reload();
+  }
+
 }

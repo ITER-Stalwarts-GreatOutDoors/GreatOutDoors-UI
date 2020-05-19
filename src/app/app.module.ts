@@ -28,10 +28,13 @@ import { RetailerProfileComponent } from './retailerhomepage/retailer-profile/re
 import { RetailerEditProfileComponent } from './retailerhomepage/retailer-edit-profile/retailer-edit-profile.component';
 import { AddproductComponent } from './product-master-home/addproduct/addproduct.component';
 import { ViewproductComponent } from './product-master-home/viewproduct/viewproduct.component';
+import { ToastrModule } from 'ngx-toastr';
 import { AddretailerComponent } from './admin-home/addretailer/addretailer.component';
 import { AddproductmasterComponent } from './admin-home/addproductmaster/addproductmaster.component';
 import { ViewproductmasterComponent } from './admin-home/viewproductmaster/viewproductmaster.component';
-import { ViewretailerComponent } from './viewretailer/viewretailer.component';
+import { ViewretailerComponent } from './admin-home/viewretailer/viewretailer.component';
+
+
 
 
 @NgModule({
@@ -54,7 +57,8 @@ import { ViewretailerComponent } from './viewretailer/viewretailer.component';
     AddretailerComponent,
     AddproductmasterComponent,
     ViewproductmasterComponent,
-    ViewretailerComponent,
+    ViewretailerComponent
+  
    
   ],
   imports: [
@@ -62,13 +66,14 @@ import { ViewretailerComponent } from './viewretailer/viewretailer.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatCardModule,
     MatProgressSpinnerModule,
-    MatGridListModule
+    MatGridListModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [AddToCartServiceService , authInterceptorProviders],
   bootstrap: [AppComponent]

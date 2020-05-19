@@ -30,33 +30,55 @@
           Sign In
         </button>
         </div>
-        <div class="form form-signin">
+        <div class="form form-signin was-validated">
             <form #authSigninForm="ngForm" (ngSubmit)="onSignin(authSigninForm)">
-                <label for="email">E-MAIL</label>
-                <input type="email" placeholder="Your e-mail" id="email" ngModel name="email" required>
-                <label for="password">PASSWORD</label>
-                <input type="password" placeholder="Your password" id="password" ngModel name="password" required minlength="6">
-                <input type="submit" class="form-btn" value="Sign In" />
+                    <div class="form-group">
+
+                            <label for="email">E-MAIL</label>
+                            <input type="email" #email class="form-control" placeholder="Your e-mail" id="email" ngModel name="email" required email class="form-control" >
+                    </div>
+                    <div class="form-group">
+
+                            <label for="password">PASSWORD</label>
+                            <input type="password" class="form-control" placeholder="Your password" id="password" ngModel name="password" required minlength="6">
+
+                    </div>
+                
+                
+                <input type="submit" class="form-btn" value="Sign In" [disabled]="!authSigninForm.valid"/>
+                <a href="#" (click)="forgetPassword()" class="lined-link to-signin-link">Forget password ?</a>
 
             </form>
         </div>
 
-        <div class="form form-signup">
-            <form #authSignupForm="ngForm" (ngSubmit)="onSignup(authSignupForm)">
-                <label for="name">FULL NAME</label>
-                <input type="text" placeholder="Your full name" ngModel name="username" required id="name">
-                <label for="email">E-MAIL</label>
-                <input type="email" placeholder="Your e-mail" id="email" ngModel name="email" required email>
-                <label for="password">PASSWORD</label>
-                <input type="password" placeholder="Your password" id="password" ngModel name="password" required minlength="6">
-                <label for="mobile">MOBILE NO.</label>
-                <input type="text" placeholder="Your mobile number" id="mobile" ngModel name="phoneno" required minlength="10">
+        <div class="form form-signup was-validated">
+            <form #authSignupForm="ngForm"  (ngSubmit)="onSignup(authSignupForm)">
+                <div class="form-group">
+                        <label for="name">FULL NAME</label>
+                        <input type="text" class="form-control" placeholder="Your full name" ngModel name="username" required id="name" >
+                </div>
+                <div class="form-group">
+                        <label for="email">E-MAIL</label>
+                <input type="email" placeholder="Your e-mail" class="form-control" id="email" ngModel name="email" required email #email="ngModel">
+                </div>
+    
+                 <div class="form-group">
+                        <label for="password">PASSWORD</label>
+                        <input type="password" placeholder="Your password" class="form-control" id="password" ngModel name="password" required minlength="8">
+                    
+                 </div>
+                 <div class="form-group">
+                        <label for="mobile">MOBILE NO.</label>
+                        <input type="text" placeholder="Your mobile number" class="form-control" id="mobile" ngModel name="phoneno" required minlength="10">
+                  </div>
+              
+                
+            
                 <p class="terms">
-                    <input type="checkbox"> I agree all statments in
+                    <input type="checkbox" required> I agree all statments in
                     <a href="#" class="lined-link">terms of service</a>
                 </p>
-                <input type="submit" class="form-btn" value="Sign Up" />
-                <a href="#" class="lined-link to-signin-link">I'm already member</a>
+                <input type="submit" class="form-btn" value="Sign Up" [disabled]="!authSignupForm.valid"/>
             </form>
         </div>
 

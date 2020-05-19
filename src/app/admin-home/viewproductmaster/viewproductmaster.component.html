@@ -1,17 +1,21 @@
 <div class="container">
-    <h2>Product Master</h2>         
+    <h2>Product Master</h2>  
+    
+ 
     <table class="table table-dark table-striped">
       <thead>
         <tr>
-          <th>Product Master Name</th>
-          <th>Product Master Phone Number</th>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Phone No.</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let productmaster of productmasters;let i = index">
-          <td>{{productmaster.productMasterName}}</td>
-          <td>{{product.productMasterPhoneNumber}}</td>
-          <td><button class="btn btn-danger" (click)="deleteProduct(i)">Delete</button></td>
+          <td>{{productmaster.id}}</td>
+          <td>{{productmaster.username}}</td>
+          <td>{{productmaster.phoneno}}</td>
+          <td><button class="btn btn-danger" (click)="deleteProductMaster(i)">Delete</button></td>
         </tr>
         
       </tbody>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/app/models/user.model';
+import { NotificationService } from 'src/app/_services/notification.service';
 
 @Component({
   selector: 'app-addproductmaster',
@@ -15,17 +16,17 @@ export class AddproductmasterComponent implements OnInit {
   roles: any;
   user: any;
 
-  constructor(private userService:UserService,private router: Router, private tokenStorageService: TokenStorageService) { }
+  constructor(private notificationService:NotificationService,private userService:UserService,private router: Router, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (!this.isLoggedIn) {
-      this.router.navigate(["/auth"]);
+      this.router.navigate(["/home"]);
     }
     else{
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
-      if(!this.roles.includes('ROLE_PRODUCT_MASTER')){
+      if(!this.roles.includes('ROLE_ADMIN')){
         this.router.navigate(["/home"]);
       }
     }
@@ -38,11 +39,24 @@ export class AddproductmasterComponent implements OnInit {
     this.user.username = form.value.username;
     this.user.password = form.value.password;
     this.user.email = form.value.email;
-    this.user.phone = form.value.phone;
+    this.user.phoneno = form.value.phoneno;
     console.log(this.user);
     let add = this.userService.addProductMaster(this.user);
-    add.subscribe((data)=>message=data);
-    this.router.navigate(["/productmaster"]);
+    add.subscribe(
+      data=>{
+        this.notificationService.showSuccess("Successfully!!","Product master added");
+        message=data
+      },
+      err=>{
+        this.notificationService.showError("Please try again!!","Fail to add product master");
+      }
+      
+      );
+    this.router.navigate(["/admin"]);
+  }
+
+  reloadPage() {
+    window.location.reload();
   }
 
 }

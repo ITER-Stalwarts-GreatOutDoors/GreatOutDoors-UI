@@ -3,6 +3,7 @@ import { AddToCartServiceService } from '../_services/add-to-cart-service.servic
 import { NavServiceService } from '../_services/nav-service.service';
 import { Router } from '@angular/router';
 import { TokenStorageService } from '../_services/token-storage.service';
+import { NotificationService } from '../_services/notification.service';
 
 @Component({
   selector: 'app-cart',
@@ -13,9 +14,9 @@ export class CartComponent implements OnInit {
 
   private roles: string[];
   isLoggedIn = false;
-
+  private userId = '';
   products:any;
-  constructor(private service:AddToCartServiceService , public nav:NavServiceService ,private router: Router , private tokenStorageService: TokenStorageService) { }
+  constructor(private notificationService:NotificationService,private service:AddToCartServiceService , public nav:NavServiceService ,private router: Router , private tokenStorageService: TokenStorageService) { }
 
   
   ngOnInit(): void {
@@ -27,6 +28,7 @@ export class CartComponent implements OnInit {
     else{
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
+      this.userId = user.id;
       if(!this.roles.includes('ROLE_RETAILER')){
         this.router.navigate(["/home"]);
       }
@@ -122,9 +124,13 @@ export class CartComponent implements OnInit {
 
   removeItem(index) {
     var message;
-    let remove = this.service.removeItemFromCart(this.products[index].productId);
+    if(this.itemCount()==1){
+      this.notificationService.showWarning("Please add items!!","No item present in the cart");
+    }
+    let remove = this.service.removeItemFromCart(this.products[index].productId,this.userId);
     remove.subscribe((data) => message=data);
     this.products.splice(index, 1);
+
   
     
   }
