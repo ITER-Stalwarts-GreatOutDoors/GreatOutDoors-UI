@@ -1,10 +1,33 @@
-# GreatOutDoors
+# Great OutDoors
 
 A E-commerce website to fulfil our outdoors need.
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
 ![](ss/angular.png)
+
+
+## Detail
+A JWT authenticated webapp with 12 backend APIs. You can find the list of APIs with documentation [here](https://github.com/ITER-Stalwarts-GreatOutDoors).
+
+
+![](ss/1.png)
+![](ss/2.png)
+![](ss/4.png)
+![](ss/6.png)
+![](ss/7.png)
+![](ss/8.png)
+![](ss/9.png)
+![](ss/10.png)
+![](ss/12.png)
+![](ss/13.png)
+![](ss/15.png)
+![](ss/16.png)
+![](ss/17.png)
+
+
+
+
 
 ## Development server
 
