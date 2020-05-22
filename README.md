@@ -19,10 +19,10 @@ A JWT authenticated webapp with 12 backend APIs. You can find the list of APIs w
 ![](ss/8.png)
 ![](ss/9.png)
 ![](ss/10.png)
-![](ss/12.png)
 ![](ss/13.png)
 ![](ss/15.png)
 ![](ss/16.png)
+![](ss/11.png)
 ![](ss/17.png)
 
 
