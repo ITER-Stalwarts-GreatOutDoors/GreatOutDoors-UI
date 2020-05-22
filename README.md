@@ -1,6 +1,10 @@
-# GreatOutDoorsUI
+# GreatOutDoors
+
+A E-commerce website to fulfil our outdoors need.
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+![](ss/angular.png)
 
 ## Development server
 
