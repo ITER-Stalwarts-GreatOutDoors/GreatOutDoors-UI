@@ -1,17 +1,14 @@
+
 <div id="app">
 
 
     <!-- Header -->
     <header class="container overflow-hidden">
-        <div class="w3-container w3-lobster">
-            <p class="w3-xxxlarge">GreatOutDoors Cart</p>
+        <div class=" w3-lobster">
+            <span class="w3-large">#{{orderId}}</span>
         </div>
 
-        <ul class="breadcrumb">
-            <li>Home</li>
-            <li>Shopping Cart</li>
-        </ul>
-        <span class="count">{{itemCount()}} items in the bag</span>
+        <span class="count">{{itemCount()}} items in this order</span>
     </header>
     <!-- End Header -->
 
@@ -28,20 +25,19 @@
                         </div>
                         <div class="detail">
                             <div class="name"><a href="#">{{ product.productName }}</a></div>
-                            <div class="description">{{ product.specification }}</div>
+                            <div class="description">ID #{{product.productId}}</div>
+                            
 
                             <p><mark class="bg-secondary text-white">Colour : {{ product.colour}}</mark></p>
-                            <p><mark class="bg-info text-white">Dimension : {{ product.dimension }}</mark></p>
+                            
 
-                            <div class="description">{{ product.manufacture}}</div>
+                            <div class="description">{{product.quantity}} pcs</div>
                             <div class="price">{{ product.price | indianCurrency}}</div>
                         </div>
                     </div>
 
                     <div class="col right">
-                        <div class="quantity">
-                            <input type="number" class="quantity" step="1" [value]="product.quantity" #box (keyup)="updateQuantity(i, box.value)" (blur)="checkQuantity(i, $event)" />
-                        </div>
+                      
 
                         <div class="remove">
                             <svg (click)="removeItem(i)" version="1.1" class="close" xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60" enable-background="new 0 0 60 60" xml:space="preserve"><polygon 
@@ -52,33 +48,16 @@
                 </li>
             </ul>
         </div>
-        <div *ngIf="products.length===0" class="empty-product">
-            <h3>There are no products in your cart.</h3>
-            <button (click)="backToShopping()">Shopping now</button>
-        </div>
+
     </section>
     <!-- End Product List -->
 
     <!-- Summary -->
-    <section class="container" *ngIf="products.length > 0">
-        <div class="promotion">
-            <!-- <label for="promo-code">Have A Promo Code?</label>
-            <input type="text" id="promo-code" v-model="promoCode" /> <button type="button" onclick="checkPromoCode"></button> -->
-        </div>
-
-        <div class="summary">
-            <ul>
-                <li>Subtotal <span>{{subTotal() | indianCurrency }}</span></li>
-                <li *ngIf="discount > 0">Discount <span>
-                    {{ discountPrice() | indianCurrency}}
-                </span></li>
-                <li>Tax <span>{{tax | indianCurrency}}</span></li>
-                <li class="total">Total <span>{{ totalPrice() | indianCurrency}}</span></li>
-            </ul>
-        </div>
+    <section class="container" >
+        
 
         <div class="checkout">
-            <button type="button" (click)="checkout()">Check Out</button>
+            <button type="button">Cancel Order</button>
         </div>
     </section>
     <!-- End Summary -->

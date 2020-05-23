@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Cart } from '../models/cart.model';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Cart } from '../models/cart.model';
 export class AddToCartServiceService {
 
 
-  cartURL:String = "http://localhost:8150/cart";
+  cartURL:String = "http://localhost:8080/cart-service/cart";
 
   constructor(private http:HttpClient) { }
 
@@ -24,6 +24,14 @@ export class AddToCartServiceService {
   }
   public addToCart(cart:Cart){
     return this.http.post(this.cartURL+"/addItemToCart",cart,{responseType:'text' as 'json'});
+  }
+
+  public placeOrder(userId:string,addressId:string,totalCost:number){
+    let body = new HttpParams();
+    body = body.set('userId', userId);
+    body = body.set('addressId', addressId);
+    body = body.set('totalCost', ""+totalCost);
+    return this.http.post(this.cartURL+"/placeOrder",body,{responseType:'text' as 'json'});
   }
 
 

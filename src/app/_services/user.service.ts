@@ -20,25 +20,25 @@ export class UserService {
   
   constructor(private http: HttpClient) { }
 
-  getPublicContent(): Observable<any> {
-    return this.http.get(API_URL + 'route/all', { responseType: 'text' });
-  }
+  // getPublicContent(): Observable<any> {
+  //   return this.http.get(API_URL + 'route/all', { responseType: 'text' });
+  // }
 
-  getUserBoard(): Observable<any> {
-    return this.http.get(API_URL + 'route/user', { responseType: 'text' });
-  }
+  // getUserBoard(): Observable<any> {
+  //   return this.http.get(API_URL + 'route/user', { responseType: 'text' });
+  // }
 
-  getProductMasterBoard(): Observable<any> {
-    return this.http.get(API_URL + 'route/master', { responseType: 'text' });
-  }
+  // getProductMasterBoard(): Observable<any> {
+  //   return this.http.get(API_URL + 'route/master', { responseType: 'text' });
+  // }
 
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'route/admin', { responseType: 'text' });
-  }
+  // getAdminBoard(): Observable<any> {
+  //   return this.http.get(API_URL + 'route/admin', { responseType: 'text' });
+  // }
 
-  getRetailerBoard(): Observable<any> {
-    return this.http.get(API_URL + 'route/retailer', { responseType: 'text' });
-  }
+  // getRetailerBoard(): Observable<any> {
+  //   return this.http.get(API_URL + 'route/retailer', { responseType: 'text' });
+  // }
 
 
   //PRODUCT MASTER ROLES

@@ -1,0 +1,65 @@
+<div class="order-page">
+    <div><h1>Manage Address</h1></div>
+    <div class="order-container">
+   
+    
+      <div class="order-body" *ngFor="let address of addressList;let i = index">
+        <div class="order-body-title">
+          <div class="Grid-cell qty">
+            <span class="order-body-title">Name </span> 
+          </div>
+          <div class="Grid-cell product">
+            <span class="order-body-title">Address</span>       
+          </div>
+          <div class="Grid-cell price right-border">
+            <span class="order-body-title right">Phone Number</span> 
+          </div>
+          <div class="Grid-cell returns" *ngIf="id==='0'">
+            <button class="btn btn-info btn-sm">Edit Address</button> 
+          </div>
+          <div class="Grid-cell returns" *ngIf="id==='1'">
+            <button class="btn btn-success btn-sm" (click) = "payment(i)">Select to Deliver</button> 
+          </div>
+          <div class="Grid-cell returns">
+            <button class="btn btn-danger btn-sm" (click) = deleteAddress(i)>Delete</button> 
+          </div>
+        </div>   
+        <div class="order-body-items">
+          <div class="order-item Grid">
+          <div class="Grid-cell name">
+            <span>{{username}}</span> 
+          </div>
+          <div class="Grid-cell product">
+            <span>{{address.buildingNo}} {{address.field}} {{address.city}} {{address.state}} {{address.zip}}</span>        
+          </div>
+          <div class="Grid-cell price right-border">
+            <span class="order-body-title">{{phoneno}}
+            </span> 
+          </div>
+          <div class="Grid-cell returns">
+            
+          </div>
+          <div class="Grid-cell returns">
+           
+          </div>
+          
+        </div>
+        <div class="order-item Grid">
+          
+          <div class="Grid-cell returns">
+            <span ></span>
+        
+          </div>
+        </div>
+        </div>
+        <hr class="new5">
+        
+      </div>  
+  
+    </div>
+
+
+    <div >
+      <button class="btn btn-primary" (click)=addAddress()>Add New Address</button>
+       </div>
+</div>

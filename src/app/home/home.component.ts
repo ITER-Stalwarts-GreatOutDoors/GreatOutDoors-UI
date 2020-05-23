@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   content: string;
   isLoggedIn = false;
   isRetailer = false;
-  a = 0;
+
  
 
   
@@ -34,14 +34,14 @@ export class HomeComponent implements OnInit {
     }
 
     this.nav.show();
-    this.userService.getPublicContent().subscribe(
-      data => {
-        this.content = data;
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
+    // this.userService.getPublicContent().subscribe(
+    //   data => {
+    //     this.content = data;
+    //   },
+    //   err => {
+    //     this.content = JSON.parse(err.error).message;
+    //   }
+    // );
   }
 
   loadedFeature='home';

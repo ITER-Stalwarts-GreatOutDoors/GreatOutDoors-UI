@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="card-container ">
+      <div class="left">
+        <h1>Your Order</h1>
+        <span></span>
+        <div class="order-items" *ngFor="let product of products">
+          <div class="item">
+            <span>{{product.productName}}</span>
+            <span>{{product.quantity}} pcs</span>
+          </div>
+          <span class="item-price">₹{{product.price}}</span>
+        </div>
+        
+        <div class="total">
+          <h2>Total</h2>
+          <span class="price">₹{{subTotal()}}</span>
+        </div>
+      </div>
+      <div class="right">
+        <h1>Payment</h1>
+        <span></span>
+        <div class="form-container">
+          <form action="#" onsubmit="return false">
+            <div class="payment-section">
+              <label for="payment">Payment Method</label>
+              <input type="text" name="payment" id="payment" />
+            </div>
+            <div class="input-items flex">
+              <div class="marginright">
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" id="firstName" />
+              </div>
+              <div>
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" id="lastName" />
+              </div>
+            </div>
+            <div class="input-items">
+              <label for="cardNumber">Card Number</label>
+              <input type="text" name="cardNumber" id="cardNumber" />
+            </div>
+            <div class="input-items flex">
+              <div>
+                <label for="cardNumber">Expiration Date</label>
+                <div class="flex marginright">
+                  <span class="marginright">
+                    <input type="text" name="cardNumber" id="cardNumber" />
+                  </span>
+                  <input type="text" name="cardNumber" id="cardNumber" />
+                </div>
+              </div>
+              <div>
+                <label for="cardNumber">CVV</label>
+                <input type="text" name="cardNumber" id="cardNumber" />
+              </div>
+            </div>
+            <div class="submit">
+              <button (click)=placeOrder()>Place Order</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

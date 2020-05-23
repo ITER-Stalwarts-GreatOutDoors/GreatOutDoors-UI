@@ -1,0 +1,37 @@
+<div class="order-page">
+    
+  <div class="order-container" *ngFor="let order of orders;let i = index">
+    <div class="order-header Grid">
+      <div class="Grid-cell">
+        <span class="bold">#{{i+1}}</span> 
+      </div>
+      <div class="Grid-cell">
+        <span class="bold">Total ₹{{order.totalcost}}</span>        
+      </div>
+     
+      
+      <div class="Grid-cell">
+       
+        <button class="btn btn-outline-success right" (click)="details(i)">Details</button>
+      </div>
+      <div class="Grid-cell Grid-cell">
+        <button class="btn btn-outline-danger right">Cancel</button>
+      </div>
+    </div>
+    <div class="order-footer Grid">
+      <div class="Grid-cell">
+        <span><b>Date:</b> {{order.orderInitiateTime}}</span>
+      </div>
+      <div class="Grid-cell" >#{{order.addressId}}</div>
+      <div class="Grid-cell">
+        <span class="right">Status: 
+          <span class="order-status-success">Success</span>     
+        </span>
+      </div>
+      <div class="Grid-cell">
+        <span class="right">OrderId: #{{order.orderId}}</span>
+      </div>
+    </div>
+    </div>
+  </div>
+  

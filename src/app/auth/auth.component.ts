@@ -30,28 +30,7 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(){
     this.nav.hide();
-    this.isLoggedIn = !!this.tokenStorage.getToken();
-    if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
-
-      if(this.roles.includes('ROLE_ADMIN')){
-        this.router.navigate(['/admin']);
-      }
-  
-      else if(this.roles.includes('ROLE_PRODUCT_MASTER')){
-        this.router.navigate(['/master']);
-      }
-  
-      else if(this.roles.includes('ROLE_RETAILER')){
-        this.router.navigate(['/retailer']);
-      }
-  
-      else if(this.roles.includes('ROLE_USER')){
-        this.router.navigate(['/user']);
-      }
-
-    }
+    this.checkSession();
   }
   
   onSignin(form: NgForm){
@@ -66,6 +45,7 @@ export class AuthComponent implements OnInit {
         this.roles = this.tokenStorage.getUser().roles;
         this.notificationService.showSuccess("Welcome,"+this.tokenStorage.getUser().username+"!!","Logged in Successfully");
         this.reloadPage();
+        
       },
       err => {
         this.errorMessage = err.error.message;
@@ -92,6 +72,7 @@ export class AuthComponent implements OnInit {
         this.roles = this.tokenStorage.getUser().roles;
         this.notificationService.showSuccess("Welcome,"+this.tokenStorage.getUser().username+"!!","Registered Successfully");
         this.reloadPage();
+        // this.checkSession();
         
 
       },
@@ -123,6 +104,31 @@ reloadPage() {
 forgetPassword(){
   this.notificationService.showInfo("Please verify your account!","A mail has been send to your account");
   
+}
+
+checkSession(){
+  this.isLoggedIn = !!this.tokenStorage.getToken();
+  if (this.tokenStorage.getToken()) {
+    this.isLoggedIn = true;
+    this.roles = this.tokenStorage.getUser().roles;
+
+    if(this.roles.includes('ROLE_ADMIN')){
+      this.router.navigate(['/admin']);
+    }
+
+    else if(this.roles.includes('ROLE_PRODUCT_MASTER')){
+      this.router.navigate(['/master']);
+    }
+
+    else if(this.roles.includes('ROLE_RETAILER')){
+      this.router.navigate(['/retailer']);
+    }
+
+    else if(this.roles.includes('ROLE_USER')){
+      this.router.navigate(['/user']);
+    }
+
+  }
 }
 
 // getRoleAndNavigate(){

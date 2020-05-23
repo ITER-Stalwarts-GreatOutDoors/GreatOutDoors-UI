@@ -138,6 +138,10 @@ export class CartComponent implements OnInit {
     this.router.navigate(["/retailer"]);
   }
 
+  checkout(){
+    this.router.navigate(['/viewaddress'],{queryParams: {id:1}});
+  }
+
 
   // checkPromoCode(event){
   //   for (var i = 0; i < this.promotions.length; i++) {

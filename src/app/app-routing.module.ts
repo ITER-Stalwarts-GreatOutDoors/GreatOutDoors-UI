@@ -16,6 +16,12 @@ import { AddretailerComponent } from './admin-home/addretailer/addretailer.compo
 import { AddproductmasterComponent } from './admin-home/addproductmaster/addproductmaster.component';
 import { ViewproductmasterComponent } from './admin-home/viewproductmaster/viewproductmaster.component';
 import { ViewretailerComponent } from './admin-home/viewretailer/viewretailer.component';
+import { PlaceOrderComponent } from './place-order/place-order.component';
+import { OrderpageComponent } from './orderpage/orderpage.component';
+import { OrderdetailComponent } from './orderdetail/orderdetail.component';
+import { ViewaddressComponent } from './viewaddress/viewaddress.component';
+import { AddressComponent } from './address/address.component';
+
 
 
 const routes: Routes = [
@@ -35,6 +41,11 @@ const routes: Routes = [
   {path:'admin/addproductmaster' , component: AddproductmasterComponent},
   {path:'admin/viewretailers' , component: ViewretailerComponent},
   {path:'admin/viewproductmaster' , component: ViewproductmasterComponent},
+  {path:'placeorder' , component : PlaceOrderComponent},
+  {path:'order' , component: OrderpageComponent},
+  {path:'orderdetail' , component: OrderdetailComponent},
+  {path: 'viewaddress',component: ViewaddressComponent },
+  {path: 'address',component: AddressComponent },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

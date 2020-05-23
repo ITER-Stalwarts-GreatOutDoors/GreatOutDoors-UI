@@ -1,0 +1,53 @@
+<div class="container jumbotron-fluid">
+    <div class="form">
+        <form  #form="ngForm" (ngSubmit)="saveAddress(form)">	
+            <br><br><br><br><br><br><br><br>
+            <div class="title">
+                <!-- <h2>Add Address</h2> -->
+            </div>
+            <div class="shipping">
+                <h3>Add Address</h3>
+            
+            <div class="row1">
+                <div class="first-name"></div>
+            </div>
+            
+            <div class="row2">
+                <div class="address"><label for="">Building Number</label><input type="text" 
+                   ngModel name ="buildingNo" required></div>
+               
+            </div>
+            
+            <div class="row3">
+                <div class="city"><label for="">City</label><input type="text" ngModel name="city" required></div>
+                    <div class="input">
+                        <label for="">State</label><input type="text" ngModel name="state" required>
+                    </div>
+                    <div class="input">
+                        <label for="">Field</label><input type="text"ngModel name="field" required>
+                    </div>
+            </div>
+
+            <div class="row4">
+                <div class="postal-code"><label for="">ZIP/Postal Code</label><input type="text" ngModel name="zip" required></div>
+            </div>
+        </div>
+        
+        
+
+        <br><br>
+    <div class="row4" *ngIf="id==='0'">
+        <div class="button">
+            <button type="submit">Add Address</button>
+        </div>
+        
+    </div>
+    <div class="row4" *ngIf="id==='1'" >
+        <div class="button">
+            <button type="submit">Deliver To This Address</button>
+        </div>
+        
+    </div>
+</form>
+</div>
+</div>

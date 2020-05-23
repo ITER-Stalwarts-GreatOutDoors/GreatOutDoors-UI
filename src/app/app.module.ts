@@ -33,6 +33,11 @@ import { AddretailerComponent } from './admin-home/addretailer/addretailer.compo
 import { AddproductmasterComponent } from './admin-home/addproductmaster/addproductmaster.component';
 import { ViewproductmasterComponent } from './admin-home/viewproductmaster/viewproductmaster.component';
 import { ViewretailerComponent } from './admin-home/viewretailer/viewretailer.component';
+import { PlaceOrderComponent } from './place-order/place-order.component';
+import { OrderpageComponent } from './orderpage/orderpage.component';
+import { OrderdetailComponent } from './orderdetail/orderdetail.component';
+import { AddressComponent } from './address/address.component';
+import { ViewaddressComponent } from './viewaddress/viewaddress.component';
 
 
 
@@ -57,7 +62,12 @@ import { ViewretailerComponent } from './admin-home/viewretailer/viewretailer.co
     AddretailerComponent,
     AddproductmasterComponent,
     ViewproductmasterComponent,
-    ViewretailerComponent
+    ViewretailerComponent,
+    PlaceOrderComponent,
+    OrderpageComponent,
+    OrderdetailComponent,
+    AddressComponent,
+    ViewaddressComponent
   
    
   ],

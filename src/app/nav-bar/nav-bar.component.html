@@ -37,10 +37,11 @@
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" routerLink="/retailer/profile" *ngIf="showRetailerBoard">View Profile</a>
+                    <a class="dropdown-item" routerLink="/retailer/profile" *ngIf="showRetailerBoard">My Profile</a>
                     <a class="dropdown-item" routerLink="/user" *ngIf="isLoggedIn && !showRetailerBoard">Store</a>
-                    <a class="dropdown-item" routerLink="/wishlist" *ngIf="showRetailerBoard">Wish List</a>
-                    <a class="dropdown-item" routerLink="/cart" *ngIf="showRetailerBoard">Cart</a> 
+                    <a class="dropdown-item" routerLink="/wishlist" *ngIf="showRetailerBoard">My Wishlist</a>
+                    <a class="dropdown-item" routerLink="/cart" *ngIf="showRetailerBoard">My Cart</a> 
+                    <a class="dropdown-item" routerLink="/order" *ngIf="showRetailerBoard">My Orders</a> 
                     <a class="dropdown-item" (click)="logout()" routerLink="#">Log Out</a>
                 </div>
             </div>
