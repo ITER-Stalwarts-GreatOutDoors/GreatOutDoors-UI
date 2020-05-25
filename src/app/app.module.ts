@@ -38,6 +38,7 @@ import { OrderpageComponent } from './orderpage/orderpage.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { AddressComponent } from './address/address.component';
 import { ViewaddressComponent } from './viewaddress/viewaddress.component';
+import { CancelorderComponent } from './cancelorder/cancelorder.component';
 
 
 
@@ -67,7 +68,8 @@ import { ViewaddressComponent } from './viewaddress/viewaddress.component';
     OrderpageComponent,
     OrderdetailComponent,
     AddressComponent,
-    ViewaddressComponent
+    ViewaddressComponent,
+    CancelorderComponent
   
    
   ],

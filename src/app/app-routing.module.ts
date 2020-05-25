@@ -21,6 +21,7 @@ import { OrderpageComponent } from './orderpage/orderpage.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { ViewaddressComponent } from './viewaddress/viewaddress.component';
 import { AddressComponent } from './address/address.component';
+import { CancelorderComponent } from './cancelorder/cancelorder.component';
 
 
 
@@ -46,6 +47,7 @@ const routes: Routes = [
   {path:'orderdetail' , component: OrderdetailComponent},
   {path: 'viewaddress',component: ViewaddressComponent },
   {path: 'address',component: AddressComponent },
+  {path: 'cancelorder' , component:CancelorderComponent},
 
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

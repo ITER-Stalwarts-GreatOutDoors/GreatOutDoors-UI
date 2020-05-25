@@ -40,7 +40,7 @@
 
                     <div class="col right">
                         <div class="quantity">
-                            <input type="number" class="quantity" step="1" [value]="product.quantity" #box (keyup)="updateQuantity(i, box.value)" (blur)="checkQuantity(i, $event)" />
+                            <input type="number" class="quantity" step="1" [value]="product.quantity" #box (keyup)="updateQuantity(i, box.value)" (blur)="checkQuantity(i, $event)" maxlength="3" />
                         </div>
 
                         <div class="remove">

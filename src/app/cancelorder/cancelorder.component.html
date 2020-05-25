@@ -1,0 +1,50 @@
+<div id="app">
+
+
+    <!-- Header -->
+    <header class="container overflow-hidden">
+        <div class=" w3-lobster">
+            <span class="w3-large">Canceled Products</span>
+        </div>
+
+    </header>
+    <!-- End Header -->
+
+    <!-- Product List -->
+    <section class="container">
+        <div *ngIf="cancelProducts.length > 0">
+            <ul class="products">
+                <li class="row" *ngFor="let product of cancelProducts;let i = index">
+                    <div class="col left">
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img :src={{product.productURL}} />
+                            </a>
+                        </div>
+                        <div class="detail">
+                            <div class="name"><a href="#">{{ product.productName }}</a></div>
+                            <div class="description">Product ID #{{product.productId}}</div>
+                            <div class="description">Order ID #{{product.orderId}}</div>
+                            <div class="description">Cancel Date : {{product.ordercanceltime}}</div>  
+                            <p><mark class="bg-danger text-white">Status : Canceled</mark></p>
+                            
+                            <div class="price">₹{{product.price}}</div>
+                        </div>
+                    </div>
+
+                    <div class="col right">
+                      
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+    <!-- End Product List -->
+
+    <!-- Summary -->
+    <section class="container" >
+    </section>
+    <!-- End Summary -->
+</div>

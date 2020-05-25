@@ -114,12 +114,19 @@ export class CartComponent implements OnInit {
   checkQuantity(index, event) {
 
     // Update quantity to 1 if it is empty
-    if (event.target.value === "") {
+    if (event.target.value === ""  || parseInt(event.target.value,10)<0) {
+      this.notificationService.showError("Please try again!!","Quantity cannot be blank or negative");
       var product = this.products[index];
       product.quantity = 1;
-
       this.products[index]=product;
     }
+    if(event.target.value.length>3){
+      this.notificationService.showError("Please try again!!","Quantity cannot be greater than 999");
+      var product = this.products[index];
+      product.quantity = 1;
+      this.products[index]=product;
+    }
+ 
   }
 
   removeItem(index) {

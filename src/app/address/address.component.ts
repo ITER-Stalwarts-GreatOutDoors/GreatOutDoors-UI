@@ -58,14 +58,15 @@ export class AddressComponent implements OnInit {
     
     this.addressId = await this.addressService.addAddress(this.address);
     
+    
     if(this.id==='1'){
+      
       this.router.navigate(['/placeorder'],{queryParams: {addressId:this.addressId}})
       
     }
-    this.router.navigate(["/viewaddress"]);
-    
-
-    
+    else{
+     this.router.navigate(["/viewaddress"]);
+    }
     
   }
 

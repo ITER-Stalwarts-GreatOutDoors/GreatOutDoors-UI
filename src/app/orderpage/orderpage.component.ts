@@ -4,6 +4,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 import { Router } from '@angular/router';
 import { NavServiceService } from '../_services/nav-service.service';
 import { NotificationService } from '../_services/notification.service';
+import { CancelorderService } from '../_services/cancelorder.service';
 
 @Component({
   selector: 'app-orderpage',
@@ -17,7 +18,7 @@ export class OrderpageComponent implements OnInit {
   isLoggedIn = false;
   private userId = '';
   orders:any;
-  constructor(private orderService:OrderService ,private notificationService:NotificationService, public nav:NavServiceService ,private router: Router , private tokenStorageService: TokenStorageService) { }
+  constructor(private cancelService:CancelorderService, private orderService:OrderService ,private notificationService:NotificationService, public nav:NavServiceService ,private router: Router , private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
 
@@ -43,6 +44,26 @@ export class OrderpageComponent implements OnInit {
   details(index){
     var orderId = this.orders[index].orderId;
     this.router.navigate(['/orderdetail'],{queryParams: {orderId:orderId}});
+  }
+
+  cancelOrder(index){
+    var message;
+    var orderId = this.orders[index].orderId;
+    let cancel = this.cancelService.cancelOrder(orderId,this.userId);
+    cancel.subscribe(
+        data=>{
+          message=data;
+          this.notificationService.showSuccess("Refund initiated!!","Order canceled successfully");
+          this.reloadPage();
+        },
+        err=>{
+          this.notificationService.showError("Please try again!!","Fail to cancel order");
+        }
+    );
+  }
+
+  reloadPage() {
+    window.location.reload();
   }
 
 }

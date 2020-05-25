@@ -4,6 +4,7 @@ import { OrderService } from '../_services/order.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { NavServiceService } from '../_services/nav-service.service';
 import { NotificationService } from '../_services/notification.service';
+import { CancelorderService } from '../_services/cancelorder.service';
 
 @Component({
   selector: 'app-orderdetail',
@@ -17,7 +18,7 @@ export class OrderdetailComponent implements OnInit {
   private roles: string[];
   isLoggedIn = false;
   private userId = '';
-  constructor(private route: ActivatedRoute ,private orderService: OrderService ,private notificationService:NotificationService , public nav:NavServiceService ,private router: Router , private tokenStorageService: TokenStorageService ) { }
+  constructor(private cancelService:CancelorderService, private route: ActivatedRoute ,private orderService: OrderService ,private notificationService:NotificationService , public nav:NavServiceService ,private router: Router , private tokenStorageService: TokenStorageService ) { }
 
   ngOnInit(): void {
     this.nav.show();
@@ -26,7 +27,7 @@ export class OrderdetailComponent implements OnInit {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (!this.isLoggedIn) {
-      this.router.navigate(["/auth"]);
+      this.router.navigate(["/home"]);
     }
     else{
       const user = this.tokenStorageService.getUser();
@@ -67,8 +68,40 @@ export class OrderdetailComponent implements OnInit {
 
 
   removeItem(index) {
+    var message;
+    let cancelProduct = this.cancelService.cancelProduct(this.orderId,this.userId,this.products[index].productId);
+    cancelProduct.subscribe(
+      data => {
+        message=data;
+        this.notificationService.showWarning("Refund initiated!!","Product canceled successfully");
+        this.reloadPage();
+      },
+      err =>{
+        this.notificationService.showError("Please try again!!","Fail to cancel this product");
+      }
+    );
 
     
+  }
+
+  cancelOrder(){
+    var message;
+   
+    let cancel = this.cancelService.cancelOrder(this.orderId,this.userId);
+    cancel.subscribe(
+        data=>{
+          message=data;
+          this.notificationService.showWarning("Refund initiated!!","Order canceled successfully");
+          this.router.navigate(["/order"]);
+        },
+        err=>{
+          this.notificationService.showError("Please try again!!","Fail to cancel order");
+        }
+    );
+  }
+
+  reloadPage() {
+    window.location.reload();
   }
 
 }
